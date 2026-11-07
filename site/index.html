@@ -1,38 +1,30 @@
 <!doctype html>
 <html lang="de">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Robotikkurs RDF</title>
-<style>
-  body { max-width: 44rem; margin: 3rem auto; padding: 0 1.25rem; font: 1.15rem/1.6 system-ui, sans-serif; color: #173342; }
-  h1, h2 { line-height: 1.2; }
-  details { border-left: .25rem solid #158275; padding-left: 1rem; }
-  summary { cursor: pointer; }
-</style>
-<main>
-  <h1>Robotikkurs RDF</h1>
-  <h2>Einstieg ohne Roboter</h2>
-  <p>Du kannst eine Folge von Befehlen testen und herausfinden, an welchem Schritt eine Korrektur nötig ist.</p>
-  <ol>
-    <li>Zeichne ein Raster mit drei Zeilen und drei Spalten. Dein Roboter startet unten links und schaut nach oben. Sein Ziel liegt oben rechts.</li>
-    <li>Schreibe ein Programm mit den Befehlen „ein Feld vor“, „links drehen“ und „rechts drehen“. Beim Drehen bleibt der Roboter auf seinem Feld.</li>
-    <li>Tauscht eure Programme zu zweit. Spielt jeden Befehl mit einer Figur nach. Markiert den ersten Schritt, an dem die Figur von der geplanten Route abweicht, und verbessert das Programm.</li>
-  </ol>
-  <details><summary>Eine mögliche Lösung prüfen</summary>
-    <p>Zweimal ein Feld vor, einmal rechts drehen, zweimal ein Feld vor. Nach der Drehung steht die Figur oben links und schaut nach rechts.</p>
-  </details>
-  <h2>Fehlersuche am Spielfeldrand</h2>
-  <p>Stelle die Figur wieder unten links auf, mit Blick nach oben. Ein anderes Team möchte erst nach oben links fahren und dann nach rechts zum Ziel. Sein Programm lautet:</p>
-  <ol>
-    <li>Ein Feld vor</li>
-    <li>Ein Feld vor</li>
-    <li>Links drehen</li>
-    <li>Ein Feld vor</li>
-    <li>Ein Feld vor</li>
-  </ol>
-  <p>Spiele das Programm nach. Bei welchem Befehl schaut die Figur zum ersten Mal in die falsche Richtung? Bei welchem würde sie das Raster verlassen? Ändere einen einzigen Befehl und teste deine Korrektur vom Startfeld aus.</p>
-  <details><summary>Fehlersuche überprüfen</summary>
-    <p>Nach Befehl 3 steht die Figur oben links und schaut über den linken Rand. Erst bei Befehl 4 würde sie das Raster verlassen. Ersetze Befehl 3 durch „Rechts drehen“. Die letzten beiden Schritte führen dann oben rechts ins Ziel.</p>
-  </details>
-</main>
-</html>
+<title>Einstieg ohne Roboter · Robotikkurs RDF</title>
+<link rel="stylesheet" href="robotik.css">
+</head>
+<body>
+<a class="skip" href="#auftrag">Zum Arbeitsauftrag</a>
+<header><div class="wrap hero">
+<div><p class="label">Modul B · Robotik</p><h1>Einstieg ohne Roboter</h1><p>Eine Route programmieren und auf dem Spielfeld testen.</p></div>
+<div class="info"><strong>Partnerarbeit</strong><br>Material: Papier, Stift und Spielfigur</div>
+</div></header>
+<nav aria-label="Abschnitte"><div class="wrap"><a href="#auftrag">Arbeitsauftrag</a><a href="#fehler">Fehlersuche</a></div></nav>
+<main class="wrap">
+<section id="auftrag"><p class="label">Arbeitsauftrag</p><h2>Vom Startfeld zum Ziel</h2>
+<aside><strong>Lernziel</strong><br>Du kannst eine Folge von Befehlen planen, testen und den ersten fehlerhaften Schritt erkennen.</aside>
+<div class="columns"><div><h3>Plane die Route</h3><ol>
+<li>Zeichne ein Raster mit drei Zeilen und drei Spalten. Setze deine Figur unten links ein. Sie schaut nach oben.</li>
+<li>Schreibe eine Befehlsfolge bis zum Ziel oben rechts. Verwende „ein Feld vor“, „links drehen“ und „rechts drehen“. Beim Drehen bleibt die Figur auf ihrem Feld.</li>
+<li>Tauscht eure Programme. Führt jeden Befehl einzeln aus und prüft nach jedem Schritt Position und Blickrichtung.</li>
+</ol></div>
+<figure><div class="board" role="img" aria-label="Raster mit neun Feldern. Start unten links mit Blick nach oben, Ziel oben rechts."><i></i><i></i><b>Ziel</b><i></i><i></i><i></i><b><span>↑</span>Start</b><i></i><i></i></div><figcaption>Spielfeld · Ausgangsposition</figcaption></figure></div>
+<details><summary>Eine mögliche Lösung prüfen</summary><p>Zweimal ein Feld vor, einmal rechts drehen, zweimal ein Feld vor. Nach der Drehung steht die Figur oben links und schaut nach rechts.</p></details></section>
+<section id="fehler"><p class="label">Fehlersuche</p><h2>Was passiert am Spielfeldrand?</h2><p>Stelle die Figur wieder unten links auf, mit Blick nach oben. Ein anderes Team möchte über das obere linke Feld zum Ziel fahren. Teste sein Programm.</p>
+<div class="program"><h3>Programm des Teams</h3><ol><li>Ein Feld vor</li><li>Ein Feld vor</li><li>Links drehen</li><li>Ein Feld vor</li><li>Ein Feld vor</li></ol></div>
+<h3>Finde die erste Abweichung</h3><p>Bei welchem Befehl schaut die Figur erstmals in die falsche Richtung? Bei welchem würde sie das Raster verlassen? Ändere einen einzigen Befehl und teste deine Korrektur vom Startfeld aus.</p>
+<details><summary>Fehlersuche überprüfen</summary><p>Nach Befehl 3 steht die Figur oben links und schaut über den linken Rand. Erst bei Befehl 4 würde sie das Raster verlassen. Ersetze Befehl 3 durch „rechts drehen“. Die letzten beiden Schritte führen ins Ziel.</p></details></section>
+</main></body></html>

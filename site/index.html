@@ -21,5 +21,18 @@
   <details><summary>Eine mögliche Lösung prüfen</summary>
     <p>Zweimal ein Feld vor, einmal rechts drehen, zweimal ein Feld vor. Nach der Drehung steht die Figur oben links und schaut nach rechts.</p>
   </details>
+  <h2>Fehlersuche am Spielfeldrand</h2>
+  <p>Stelle die Figur wieder unten links auf, mit Blick nach oben. Ein anderes Team möchte erst nach oben links fahren und dann nach rechts zum Ziel. Sein Programm lautet:</p>
+  <ol>
+    <li>Ein Feld vor</li>
+    <li>Ein Feld vor</li>
+    <li>Links drehen</li>
+    <li>Ein Feld vor</li>
+    <li>Ein Feld vor</li>
+  </ol>
+  <p>Spiele das Programm nach. Bei welchem Befehl schaut die Figur zum ersten Mal in die falsche Richtung? Bei welchem würde sie das Raster verlassen? Ändere einen einzigen Befehl und teste deine Korrektur vom Startfeld aus.</p>
+  <details><summary>Fehlersuche überprüfen</summary>
+    <p>Nach Befehl 3 steht die Figur oben links und schaut über den linken Rand. Erst bei Befehl 4 würde sie das Raster verlassen. Ersetze Befehl 3 durch „Rechts drehen“. Die letzten beiden Schritte führen dann oben rechts ins Ziel.</p>
+  </details>
 </main>
 </html>

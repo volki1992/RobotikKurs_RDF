@@ -22,6 +22,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - name: Unterrichtsmodule prüfen
+        run: python3 .agents/skills/robotik-modul-pruefen/scripts/pruefe-modul.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

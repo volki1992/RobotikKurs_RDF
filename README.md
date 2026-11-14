@@ -5,7 +5,7 @@ Dieses Repository enthält die HTML-Lerneinheiten für den Robotikkurs der Fachs
 ## Veröffentlicht
 
 - [Kursstart](https://volki1992.github.io/RobotikKurs_RDF/)
-- [Modul 1 · Aufbau und Kinematik von Industrierobotern](https://volki1992.github.io/RobotikKurs_RDF/modul-1.html)
+- [Modul 1 · Aufbau und Kinematik von Industrierobotern](https://volki1992.github.io/RobotikKurs_RDF/modul-1_kinematiken.html)
 
 ## Projektstruktur
 
@@ -45,7 +45,7 @@ python .agents/skills/robotik-modul-pruefen/scripts/pruefe-modul.py
 Eine einzelne Seite prüfen:
 
 ```text
-python .agents/skills/robotik-modul-pruefen/scripts/pruefe-modul.py site/modul-1.html
+python .agents/skills/robotik-modul-pruefen/scripts/pruefe-modul.py site/modul-1_kinematiken.html
 ```
 
 Anschließend die Seite im Browser in breiter und schmaler Ansicht kontrollieren. Ein Push auf `main` startet die automatische Prüfung und veröffentlicht `site/` nur, wenn sie erfolgreich ist.

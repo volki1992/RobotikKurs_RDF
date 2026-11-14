@@ -15,7 +15,7 @@ Bei einer vollständigen Modulprüfung:
 
 - lies `Kursbriefing.md` für Zielgruppe, Kursstand und didaktische Leitlinien,
 - lies die Zielseite und ihre eingebundenen lokalen CSS-, JavaScript- und Mediendateien,
-- nutze `site/modul-1.html` bei anderen Modulen als Referenz für fachliche Tiefe und Gestaltung, nicht als starre Schablone.
+- nutze `site/modul-1_kinematiken.html` bei anderen Modulen als Referenz für fachliche Tiefe und Gestaltung, nicht als starre Schablone.
 
 Bei einer ausdrücklich eng begrenzten Prüfung, etwa nur von Links oder schmaler Darstellung, lies nur die dafür erforderlichen Dateien.
 

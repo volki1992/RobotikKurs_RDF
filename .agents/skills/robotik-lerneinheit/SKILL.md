@@ -12,7 +12,7 @@ Erstelle fachlich belastbare, in ByCS nutzbare HTML-Einheiten, die wenige neue B
 Lies vor jeder Erstellung oder größeren Überarbeitung vollständig:
 
 1. `Kursbriefing.md` für Zielgruppe, Kursstand, geplante Reihenfolge und Veröffentlichungsweg.
-2. `site/modul-1.html` als Referenz für Layout, fachliche Tiefe, Mediennutzung, Beobachtungsfragen und Transferaufgabe.
+2. `site/modul-1_kinematiken.html` als Referenz für Layout, fachliche Tiefe, Mediennutzung, Beobachtungsfragen und Transferaufgabe.
 
 Prüfe bei einer bestehenden Einheit außerdem deren HTML sowie alle von ihr eingebundenen lokalen CSS-, JavaScript- und Mediendateien. Behandle Modul 1 als Qualitäts- und Stilreferenz, nicht als starre Schablone.
 

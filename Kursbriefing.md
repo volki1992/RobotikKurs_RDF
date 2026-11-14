@@ -16,7 +16,7 @@ Der Kurs richtet sich an Fachschüler im zweiten Jahr mit wenig Programmiererfah
 
 ## Modul 1 als Referenz
 
-Die [Unterrichtsseite](site/modul-1.html) zeigt die angestrebte fachliche Tiefe und Gestaltung. Sie führt von der einzelnen Bewegung zur Auswahl eines Roboters.
+Die [Unterrichtsseite](site/modul-1_kinematiken.html) zeigt die angestrebte fachliche Tiefe und Gestaltung. Sie führt von der einzelnen Bewegung zur Auswahl eines Roboters.
 
 1. **Aufbau und Kinematik.** Am beschrifteten Knickarm lassen sich Glied, Gelenk und Drehachse unterscheiden. Wiederholbare Animationen zeigen Verschiebung und Drehung. Ein markiertes Werkstück veranschaulicht die drei Freiheitsgrade der Position und die drei der Orientierung. Anschließend vergleichen die Schüler serielle und parallele Gelenkketten.
 2. **Typische Roboterbauformen.** Kacheln für Portal, SCARA, Knickarm und Delta verbinden reale Bilder, Bewegungsmodelle, drehbare Arbeitsräume und typische Anwendungen. SCARA und Knickarm fahren dieselbe Zielmarke an. Am Ende der Bewegung wird sichtbar, welche Bauform das Werkzeug kippen kann.
@@ -35,7 +35,7 @@ Die [Unterrichtsseite](site/modul-1.html) zeigt die angestrebte fachliche Tiefe 
 
 ## Projekt, Quellen und Veröffentlichung
 
-Der Arbeitsstand liegt im synchronisierten Teams-Projektordner **B Robotik**. Der [Prototyp](site/index.html) ist die Startseite. GitHub Pages veröffentlicht den Inhalt von `site/` bei einem Push auf `main`. ByCS bindet die jeweilige Modulseite per iframe mit stabiler URL ein. [Veröffentlichtes Modul 1](https://volki1992.github.io/RobotikKurs_RDF/modul-1.html)
+Der Arbeitsstand liegt im synchronisierten Teams-Projektordner **B Robotik**. Der [Prototyp](site/index.html) ist die Startseite. GitHub Pages veröffentlicht den Inhalt von `site/` bei einem Push auf `main`. ByCS bindet die jeweilige Modulseite per iframe mit stabiler URL ein. [Veröffentlichtes Modul 1](https://volki1992.github.io/RobotikKurs_RDF/modul-1_kinematiken.html)
 
 Die Lehrkraftreferenzen liegen im Git-ignorierten Ordner `referenzen/`. Für Modul 1 sind `Robotikskript.pdf` (S. 6, Abb. 4) und `TM1115-ENG_Basics_of_MCR_V2302.pdf` (S. 11 und 14) fachliche Grundlagen. Aufgaben, Texte und Unterrichtsskizzen werden eigenständig erstellt. Die Referenz-PDFs bleiben außerhalb von GitHub.
 

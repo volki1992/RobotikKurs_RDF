@@ -1,0 +1,10 @@
+.tile summary canvas, .workspace { background:linear-gradient(#21353c,#101a20); }
+.workspace { border-color:#33484f; }
+.workspace polygon { fill:#ec9964; }
+.workspace polyline[stroke="#354455"] { stroke:#40575f; }
+.workspace polyline[stroke="#b5c6d4"] { stroke:#c2d1d3; }
+.workspace polyline[stroke="#ffe4a4"], .workspace polyline[stroke="#ffe5a1"],
+.workspace polyline[stroke="#e6b960"], .workspace polyline[stroke="#edc278"] { stroke:#f1b184; }
+.workspace figcaption, .workspace figcaption b { color:#e0eae9; }
+.workspace label { color:#e0eae9; background:#14232a; }
+.workspace input { accent-color:#64c0bd; }

@@ -5,7 +5,7 @@ description: Überarbeitet die Gestaltung bestehender HTML-Unterrichtsmodule im 
 
 # Robotik-Moduldesign
 
-Lies das Kursbriefing, die Zielseite und die aktuelle Referenz `site/modul-1.html` im Projekt. Prüfe ihre eingebundenen Stylesheets und bei interaktiven Bildern die tatsächlich verwendeten SVG- oder Canvas-Renderer. Verwende die bestehenden Komponenten und Klassen. Erhalte Fachtexte, Aufgaben, Links und Bedienung. Passe Bildlegenden an, wenn sich eine fachlich bedeutsame Markierung ändert.
+Lies das Kursbriefing, die Zielseite und die aktuelle Referenz `site/modul-1_kinematiken.html` im Projekt. Prüfe ihre eingebundenen Stylesheets und bei interaktiven Bildern die tatsächlich verwendeten SVG- oder Canvas-Renderer. Verwende die bestehenden Komponenten und Klassen. Erhalte Fachtexte, Aufgaben, Links und Bedienung. Passe Bildlegenden an, wenn sich eine fachlich bedeutsame Markierung ändert.
 
 ## Gestaltung
 

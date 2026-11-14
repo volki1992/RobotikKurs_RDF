@@ -1,0 +1,25 @@
+/* Common light drawing surface for anatomy, axes and volumes. */
+:root {
+  --drawing-paper: #f6f7f7;
+  --drawing-edge: #d5dddf;
+  --drawing-ink: #31454e;
+  --movement: #177c76;
+}
+.system-stage, .axis-gallery svg, .workspace, .tile summary canvas {
+  background: linear-gradient(160deg, #fff 10%, var(--drawing-paper) 80%, #edf0f0);
+}
+.system-stage, .workspace { border: 1px solid var(--drawing-edge); }
+.system-stage #floorgrid path { stroke: #b6c4c7; }
+.system-stage ellipse[fill="#101a23"] { fill: #738087; opacity: .18; }
+.system-stage g[fill="#eef4fa"] { fill: var(--drawing-ink); stroke: #fff; }
+.system-stage g[stroke="#a7bccd"], .system-stage g[stroke="#adbcc2"] { stroke: #647982; }
+.system-stage [stroke="#67c3bb"], .axis-gallery [stroke="#65bcb5"],
+.axis-gallery [stroke="#90e2d0"] { stroke: var(--movement); }
+.axis-gallery [fill="#90e2d0"] { fill: var(--movement); }
+.axis-gallery [stroke="#acc4d6"], .axis-gallery [stroke="#cedbe4"] { stroke: #748b97; }
+.workspace polyline[stroke="#354455"] { stroke: #bdc9cc; }
+.workspace polyline[stroke="#b5c6d4"] { stroke: #485d68; }
+.workspace polyline[stroke="#ffe4a4"], .workspace polyline[stroke="#ffe5a1"],
+.workspace polyline[stroke="#e6b960"], .workspace polyline[stroke="#edc278"] { stroke: #a95718; }
+.workspace figcaption, .workspace figcaption b { color: var(--drawing-ink); }
+.workspace label { color: var(--drawing-ink); background: #e9eeee; }

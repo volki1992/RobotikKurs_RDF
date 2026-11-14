@@ -9,8 +9,9 @@ Der Kurs richtet sich an Fachschüler im zweiten Jahr mit wenig Programmiererfah
 | Stand | Inhalt |
 | --- | --- |
 | Veröffentlicht | Modul 1 „Aufbau und Kinematik von Industrierobotern“. Die Einheit ist für 60–90 Minuten geplant und funktioniert ohne Robotiksoftware. |
-| Als Nächstes vorgeschlagen | Koordinatensysteme und Werkzeugmittelpunkt (TCP). Eine mögliche Leitfrage ist, warum derselbe Werkstückpunkt im Basis- und im Werkstückkoordinatensystem unterschiedliche Koordinaten hat. |
-| Weitere Theoriethemen | Bewegungsarten und Bewegungsbefehle, Bahnplanung, einfache Programmabläufe sowie die Rolle von B&R mapp Motion. Reihenfolge und Dauer sind offen. Eine Kurzarbeit soll die erarbeiteten Grundlagen prüfen. |
+| Lokal ausgearbeitet | Modul 2 „Koordinatensysteme und TCP“ (25–30 Minuten). Bezugssysteme und zwei Z-Fahrten über 40 mm untersuchen (10–12 min), am Schieberegler Gelenkstellungen und TCP-Position vergleichen (10 min), Bezugswahl bei der Steckermontage begründen (5–8 min). |
+| Lokal ausgearbeitet | Modul 3 „Roboterbewegungen programmieren“ (Theorie, ca. 45–50 Minuten). Absolute und relative Zielangaben im XY-Raster, relativer Hub in zwei Bezugssystemen, PTP und LIN am Gelenkarm sowie ein vierteiliger Klebeablauf. Quiz für einen späteren Arbeitsschritt vorgesehen. |
+| Weitere Theoriethemen | Bahnplanung, einfache Programmabläufe sowie die Rolle von B&R mapp Motion. Reihenfolge und Dauer sind offen. Eine Kurzarbeit soll die erarbeiteten Grundlagen prüfen. |
 | Spätere Praxisphase | Die übergeordnete Robotikaufgabe in FEE ScreenSim V5 beginnt nach der Theorie und knüpft an den vorhandenen FEE-Kurs an. Station und Arbeitsauftrag sind noch offen. B&R Automation Studio 6 war bei der Planung noch nicht verfügbar. Vor der Praxiseinheit Softwarestand, Simulationsprojekt und Anbindung prüfen. |
 
 ## Modul 1 als Referenz
@@ -27,7 +28,10 @@ Die [Unterrichtsseite](site/modul-1.html) zeigt die angestrebte fachliche Tiefe 
 - Fachbegriffe dort einführen, wo die Schüler sie an einer Bewegung oder Entscheidung erkennen können. Kurze Absätze, Skizzen und gezielte Beobachtungsfragen halten die Seite lesbar. Längere, thematisch gegliederte HTML-Seiten sind erwünscht.
 - Die Darstellung nach dem Lernziel wählen. Für Bauteile eignen sich eindeutig zugeordnete Bildmarken, für Bewegungen wiederholbare Animationen, für räumliche Beziehungen drehbare Modelle. Für Vergleiche möglichst dieselbe Ansicht und dasselbe Ziel verwenden.
 - Die Abschlussaufgabe erhält einen eigenen Bereich. Skizzen zeigen die Anforderungen der Situation und lassen die technische Entscheidung offen. Anzahl der Fälle, Kacheln und Medien richten sich nach dem jeweiligen Thema.
-- Layoutgrundlage ist das [gemeinsame Stylesheet](site/robotik.css) mit der Schriftfolge Inter, Aptos, Segoe UI, Arial und den gelblichen Akzenten. Quellen, Bildrechte und externe Videolinks stehen kompakt am Seitenende. Interaktive Elemente auch bei schmaler ByCS-Ansicht prüfen.
+- Roboter einheitlich zeichnen: Glieder orange, Gelenke grau und Greifer wie in Modul 1. Für 2D-Zeichnungen einen hellen, für 3D-Ansichten einen dunklen Hintergrund verwenden.
+- Grafiken auch in der schmalen ByCS-Ansicht prüfen. Beschriftungen müssen frei stehen. Hinweislinien enden am bezeichneten Bauteil. Rotationspfeile verlaufen um die dargestellte Drehachse, Translationspfeile entlang der Bewegungsrichtung. Bei mehreren Koordinatensystemen müssen Ursprung, Achsen und Beschriftungen eindeutig zuordenbar bleiben.
+- Bei Animationen Blickrichtung und Bewegungshub so wählen, dass die Lernenden die Bewegung des Gelenks oder Werkzeugs auch in der eingebetteten Ansicht deutlich erkennen können.
+- Layoutgrundlage ist das [gemeinsame Stylesheet](site/robotik.css) mit der Schriftfolge Inter, Aptos, Segoe UI, Arial im Stil von Modul 1. Die Kopfzeile zeigt rechts die Deltapicker. Merkboxen heben einen kurzen Merksatz mit einem Ausrufezeichen als Piktogramm hervor. Quellen, Bildrechte und externe Videolinks stehen kompakt am Seitenende. Interaktive Elemente auch bei schmaler ByCS-Ansicht prüfen.
 
 ## Projekt, Quellen und Veröffentlichung
 
@@ -37,4 +41,4 @@ Die Lehrkraftreferenzen liegen im Git-ignorierten Ordner `referenzen/`. Für Mod
 
 ## Übergabe für das nächste Modul
 
-Für eine neue Einheit einen eigenen Chat im Teams-Projekt verwenden. Der vorhandene Projektskill [robotik-lerneinheit](.agents/skills/robotik-lerneinheit/SKILL.md) nutzt dieses Briefing und Modul 1 als Referenz. Zum Start mit `$robotik-lerneinheit` das Thema, das gewünschte Schülerergebnis und den Zeitrahmen angeben. Zuerst die fachliche Gliederung, ein geeignetes Anschauungsbeispiel und die Abschlussaufgabe abstimmen. Anschließend die HTML-Seite ausarbeiten.
+Für eine neue Einheit einen eigenen Chat im Teams-Projekt verwenden. Der vorhandene Projektskill [robotik-lerneinheit](.agents/skills/robotik-lerneinheit/SKILL.md) nutzt dieses Briefing und Modul 1 als Referenz. Zum Start mit `$robotik-lerneinheit` das Thema, das gewünschte Schülerergebnis und den Zeitrahmen angeben. Zuerst die fachliche Gliederung, ein geeignetes Anschauungsbeispiel und die Abschlussaufgabe abstimmen. Anschließend die HTML-Seite ausarbeiten. Für die gestalterische Überarbeitung bestehender Module den Skill [robotik-moduldesign](.agents/skills/robotik-moduldesign/SKILL.md) verwenden.

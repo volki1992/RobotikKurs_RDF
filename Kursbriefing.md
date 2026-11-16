@@ -10,7 +10,7 @@ Der Kurs richtet sich an Fachschüler im zweiten Jahr mit wenig Programmiererfah
 | --- | --- |
 | Veröffentlicht | Modul 1 „Aufbau und Kinematik von Industrierobotern“. Die Einheit ist für 60–90 Minuten geplant und funktioniert ohne Robotiksoftware. |
 | Lokal ausgearbeitet | Modul 2 „Koordinatensysteme und TCP“ (25–30 Minuten). Bezugssysteme und zwei Z-Fahrten über 40 mm untersuchen (10–12 min), am Schieberegler Gelenkstellungen und TCP-Position vergleichen (10 min), Bezugswahl bei der Steckermontage begründen (5–8 min). |
-| Lokal ausgearbeitet | Modul 3 „Roboterbewegungen programmieren“ (Theorie, ca. 45–50 Minuten). Absolute und relative Zielangaben im XY-Raster, relativer Hub in zwei Bezugssystemen, PTP und LIN am Gelenkarm sowie ein vierteiliger Klebeablauf. Quiz für einen späteren Arbeitsschritt vorgesehen. |
+| Lokal ausgearbeitet | Modul 3 „Roboterbewegungen programmieren“ (Theorie, ca. 50–60 Minuten). Absolute und relative Zielangaben im XY-Raster, relativer Hub in zwei Bezugssystemen, PTP und LIN am Gelenkarm, Singularität bei deckungsgleicher Sockel- und Werkzeugachse im drehbaren 3D-Modell sowie ein vierteiliger Klebeablauf. Quiz für einen späteren Arbeitsschritt vorgesehen. |
 | Weitere Theoriethemen | Bahnplanung, einfache Programmabläufe sowie die Rolle von B&R mapp Motion. Reihenfolge und Dauer sind offen. Eine Kurzarbeit soll die erarbeiteten Grundlagen prüfen. |
 | Spätere Praxisphase | Die übergeordnete Robotikaufgabe in FEE ScreenSim V5 beginnt nach der Theorie und knüpft an den vorhandenen FEE-Kurs an. Station und Arbeitsauftrag sind noch offen. B&R Automation Studio 6 war bei der Planung noch nicht verfügbar. Vor der Praxiseinheit Softwarestand, Simulationsprojekt und Anbindung prüfen. |
 
@@ -18,7 +18,7 @@ Der Kurs richtet sich an Fachschüler im zweiten Jahr mit wenig Programmiererfah
 
 Die [Unterrichtsseite](site/modul-1_kinematiken.html) zeigt die angestrebte fachliche Tiefe und Gestaltung. Sie führt von der einzelnen Bewegung zur Auswahl eines Roboters.
 
-1. **Aufbau und Kinematik.** Am beschrifteten Knickarm lassen sich Glied, Gelenk und Drehachse unterscheiden. Wiederholbare Animationen zeigen Verschiebung und Drehung. Ein markiertes Werkstück veranschaulicht die drei Freiheitsgrade der Position und die drei der Orientierung. Anschließend vergleichen die Schüler serielle und parallele Gelenkketten.
+1. **Aufbau und Kinematik.** Am beschrifteten Knickarm lassen sich Glied, Gelenk und Drehachse unterscheiden. Wiederholbare Animationen zeigen Verschiebung und Drehung. Anschließend vergleichen die Schüler serielle und parallele Gelenkketten.
 2. **Typische Roboterbauformen.** Kacheln für Portal, SCARA, Knickarm und Delta verbinden reale Bilder, Bewegungsmodelle, drehbare Arbeitsräume und typische Anwendungen. SCARA und Knickarm fahren dieselbe Zielmarke an. Am Ende der Bewegung wird sichtbar, welche Bauform das Werkzeug kippen kann.
 3. **Abschlussaufgabe.** Vier illustrierte Stationen behandeln Blechlager, Pralinenverpackung, Gehäuseprüfung und Steckermontage. Der Schülerauftrag lautet „Wählt für jede der vier Stationen eine geeignete Roboterbauform und begründet eure Wahl kurz anhand der Anforderungen.“ Die Schülerseite enthält keine Musterlösungen oder Vorgaben zum Abgabemedium.
 

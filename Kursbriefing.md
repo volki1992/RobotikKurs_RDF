@@ -39,7 +39,7 @@ Jedes Modul endet mit einem unbenoteten Selbsttest zur Vorbereitung auf die Kurz
 
 Die Lernenden können ihre Antworten direkt auf der Seite überprüfen. Bei Auswahlfragen kennzeichnen Text und Symbol richtige und falsche Antworten. Ein konkreter Hinweis unterstützt einen weiteren Versuch. Für offene Fragen lässt sich ein begründeter Lösungsvorschlag einblenden. Die Selbstkontrolle erfolgt ohne Namen oder Übermittlung von Ergebnissen. Für eine dokumentierte Auswertung durch die Lehrkraft eignet sich bei Bedarf eine eigene ByCS-Testaktivität.
 
-Alle drei Module enthalten Selbsttests.
+Alle drei Module enthalten Selbsttests. In Modul 2 öffnet „Als PDF exportieren“ am Seitenende den Druckdialog mit Aufgaben und Lösungsvorschlägen.
 
 | Modul | Möglicher Gegenstand des Selbsttests |
 | --- | --- |

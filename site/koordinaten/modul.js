@@ -189,3 +189,16 @@ el("base-step").onclick=()=>move("Basis");
 el("tool-step").onclick=()=>move("Werkzeug");
 el("reset").onclick=()=>{cancelAnimationFrame(animation);current=middle;trails.clear();drawCell();el("step-note").textContent="Der Prüfstift steht in Ausgangslage.";};
 choose("Basis");
+
+const openedForPrint = new Set();
+window.addEventListener("beforeprint", () => {
+  for (const panel of document.querySelectorAll("details:not([open])")) {
+    openedForPrint.add(panel);
+    panel.open = true;
+  }
+});
+window.addEventListener("afterprint", () => {
+  for (const panel of openedForPrint) panel.open = false;
+  openedForPrint.clear();
+});
+el("export-pdf").addEventListener("click", () => window.print());

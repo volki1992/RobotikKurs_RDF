@@ -29,3 +29,18 @@ footer { padding-block:1.5rem; }
 .answer-mark {font-weight:700}
 .answer-correct {background:#e2f3eb}
 .answer-wrong {background:#ffede5}
+
+.pdf-export { margin:1rem 0 2rem; }
+.pdf-export button { background:#17545b; color:white; padding:.65rem 1rem; }
+@media print {
+  @page { size:A4; margin:15mm; }
+  body { color:#17272a; background:white; print-color-adjust:exact; }
+  .wrap { width:100%; max-width:none; }
+  nav, .skip, .pdf-export, iframe, .controls, .line-actions, .answer-mark, .test-question [role="status"] { display:none; }
+  main.wrap > section { padding:1em 0; }
+  h2,h3,legend { break-after:avoid; }
+  figure.experiment, .test-question, .merkbox, #program-lines li { break-inside:avoid; }
+  figure.experiment { max-width:130mm; }
+  .test-question label { background:transparent; }
+  .test-question { margin:.6em 0; padding:.6em; }
+}

@@ -6,6 +6,7 @@ Dieses Repository enthält die HTML-Lerneinheiten für den Robotikkurs der Fachs
 
 - [Kursstart](https://volki1992.github.io/RobotikKurs_RDF/)
 - [Modul 1 · Aufbau und Kinematik von Industrierobotern](https://volki1992.github.io/RobotikKurs_RDF/modul-1_kinematiken.html)
+- [Modul 3 · Roboterbewegungen programmieren](https://volki1992.github.io/RobotikKurs_RDF/modul-3_bewegungen.html) · Über „Als PDF exportieren“ am Seitenende lässt sich die Druckfassung mit den Lösungen zum Selbsttest speichern.
 
 ## Projektstruktur
 

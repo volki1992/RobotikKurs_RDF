@@ -107,3 +107,16 @@ el("progress").oninput=()=>{stop("arm");drawArm(el("progress").value/100);armSta
 el("path").onchange=()=>{stop("arm");drawArm(el("progress").value/100);armStatus();};
 el("arm-go").onclick=()=>play("arm",drawArm,armStatus);
 drawArm(0);armStatus();
+
+const openedForPrint = new Set();
+window.addEventListener("beforeprint", () => {
+  for (const panel of document.querySelectorAll("details:not([open])")) {
+    openedForPrint.add(panel);
+    panel.open = true;
+  }
+});
+window.addEventListener("afterprint", () => {
+  for (const panel of openedForPrint) panel.open = false;
+  openedForPrint.clear();
+});
+el("export-pdf").addEventListener("click", () => window.print());

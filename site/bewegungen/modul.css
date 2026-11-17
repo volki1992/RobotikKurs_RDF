@@ -1,0 +1,31 @@
+.experiment { margin:1.3rem auto; max-width:780px; border:1px solid #cad3d3; }
+.experiment svg { display:block; width:100%; height:auto; background:linear-gradient(150deg,#fff,#f0f4f4); }
+.experiment svg text { fill:#263c42; font:13px "Segoe UI",sans-serif; }
+.experiment figcaption { text-align:left; padding:.6rem 1rem; }
+.controls { display:flex; align-items:end; flex-wrap:wrap; gap:.7rem; padding:.7rem 1rem; }
+.controls label { display:grid; text-align:left; font-weight:600; font-size:.9rem; }
+button,select { font:inherit; border:1px solid #839996; background:white; color:#182e31; border-radius:3px; padding:.5rem; min-height:42px; }
+button { cursor:pointer; font-weight:650; }
+button:first-of-type { color:white; background:#195956; }
+button:disabled { opacity:.65; cursor:default; }
+input { accent-color:#196761; min-height:42px; }
+output { display:block; padding:.6rem 1rem; text-align:left; background:#eaf2f1; color:#183c3c; font-weight:650; }
+#steps li { padding:.35rem .5rem; }
+#steps .active { background:#fbead4; border-left:4px solid #b46710; }
+footer { padding-block:1.5rem; }
+.skip:focus { z-index:5; }
+@media(max-width:640px){ .wrap {width:calc(100% - 1.5rem)} nav {position:static} nav .wrap {gap:.25rem 1rem;flex-wrap:wrap} nav a {padding:.4rem 0} .controls {padding:.6rem} }
+.experiment #wrist { background:linear-gradient(155deg,#293d46,#152129); }
+.singularity-video { display:block; width:100%; max-width:780px; height:auto; aspect-ratio:16/9; border:0; }
+#program-lines li {padding:.55rem; border-bottom:1px solid #cdd5d5}
+#program-lines li.active {background:#fff0d9}
+#program-lines label {display:inline-grid; margin:.2rem; font-size:.9rem}
+#program-lines input {width:6em; font:inherit; border:1px solid #839996; border-radius:3px}
+.line-actions {display:inline-block; margin:.25rem}
+.test-question {margin:1.2rem 0; padding:1rem; border:1px solid #cdd5d5; min-width:0}
+.test-question legend {font-weight:700; max-width:100%}
+.test-question label {display:block; cursor:pointer; padding:.35rem}
+.test-question input {min-height:0}
+.answer-mark {font-weight:700}
+.answer-correct {background:#e2f3eb}
+.answer-wrong {background:#ffede5}

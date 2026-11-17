@@ -10,7 +10,7 @@ Der Kurs richtet sich an Fachschüler im zweiten Jahr mit wenig Programmiererfah
 | --- | --- |
 | Veröffentlicht | Modul 1 „Aufbau und Kinematik von Industrierobotern“. Die Einheit ist für 60–90 Minuten geplant und funktioniert ohne Robotiksoftware. |
 | Veröffentlicht | [Modul 2 „Koordinatensysteme und TCP“](https://volki1992.github.io/RobotikKurs_RDF/modul-2_koordinaten.html) (25–30 Minuten). Bezugssysteme und zwei Z-Fahrten über 40 mm untersuchen (10–12 min), am Schieberegler Gelenkstellungen und TCP-Position vergleichen (10 min), sechs Multiple-Choice-Fragen zu Bezugssystemen, TCP und Koordinaten bearbeiten (5–8 min). |
-| Lokal ausgearbeitet | Modul 3 „Roboterbewegungen programmieren“ (Theorie, ca. 50–60 Minuten). Absolute und relative Zielangaben im XY-Raster, PTP und LIN am Gelenkarm, Singularität bei deckungsgleicher Sockel- und Werkzeugachse im drehbaren 3D-Modell sowie ein vierteiliger Klebeablauf. Quiz für einen späteren Arbeitsschritt vorgesehen. |
+| Veröffentlicht | [Modul 3 „Roboterbewegungen programmieren“](https://volki1992.github.io/RobotikKurs_RDF/modul-3_bewegungen.html) (Theorie, ca. 50–60 Minuten). Absolute und relative Zielangaben im XY-Raster, PTP und LIN am Gelenkarm, Singularität bei deckungsgleicher Sockel- und Werkzeugachse im drehbaren 3D-Modell sowie eine Programmieraufgabe mit bemaßter Klebestation und fünf Auswahlfragen. |
 | Weitere Theoriethemen | Bahnplanung, einfache Programmabläufe sowie die Rolle von B&R mapp Motion. Reihenfolge und Dauer sind offen. Eine Kurzarbeit soll die erarbeiteten Grundlagen prüfen. |
 | Spätere Praxisphase | Die übergeordnete Robotikaufgabe in FEE ScreenSim V5 beginnt nach der Theorie und knüpft an den vorhandenen FEE-Kurs an. Station und Arbeitsauftrag sind noch offen. B&R Automation Studio 6 war bei der Planung noch nicht verfügbar. Vor der Praxiseinheit Softwarestand, Simulationsprojekt und Anbindung prüfen. |
 
@@ -39,7 +39,7 @@ Jedes Modul endet mit einem unbenoteten Selbsttest zur Vorbereitung auf die Kurz
 
 Die Lernenden können ihre Antworten direkt auf der Seite überprüfen. Bei Auswahlfragen kennzeichnen Text und Symbol richtige und falsche Antworten. Ein konkreter Hinweis unterstützt einen weiteren Versuch. Für offene Fragen lässt sich ein begründeter Lösungsvorschlag einblenden. Die Selbstkontrolle erfolgt ohne Namen oder Übermittlung von Ergebnissen. Für eine dokumentierte Auswertung durch die Lehrkraft eignet sich bei Bedarf eine eigene ByCS-Testaktivität.
 
-Modul 1 und Modul 2 enthalten Selbsttests. Der Eintrag für Modul 3 ist eine Aufgabenidee.
+Alle drei Module enthalten Selbsttests.
 
 | Modul | Möglicher Gegenstand des Selbsttests |
 | --- | --- |

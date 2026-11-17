@@ -19,7 +19,27 @@
 .test-question [role=status]:not(:empty) { padding:.6rem; border-left:3px solid #17545b; }
 .test-question summary { cursor:pointer; font-weight:600; }
 @media (prefers-reduced-motion:reduce) { .station-face { transition:none; } }
-</style></head><body>
+.pdf-export { margin:1rem 0 2rem; }
+.pdf-export button { padding:.65rem 1rem; font:inherit; font-weight:700; color:white; background:#17545b; border:0; border-radius:4px; cursor:pointer; }
+.print-parts { display:none; }
+@media print {
+  @page { size:A4; margin:14mm; }
+  body { background:white; color:#17272a; print-color-adjust:exact; }
+  main.wrap, .wrap { max-width:none; width:auto; margin:0; }
+  nav, .skip, .pdf-export, iframe, .axis-replay, .inside button, .workspace label,
+  .station-face b, .tile > summary::after, .part summary::before, .part p { display:none !important; }
+  .print-parts { display:block; }
+  .print-parts dt { font-weight:bold; }
+  .print-parts dd { margin:0 0 .4em; }
+  .tiles, .station-grid { display:block; }
+  .tile { display:block; overflow:visible; margin:1em 0; }
+  .station-flip { display:block; width:100%; margin:.7em 0; break-inside:avoid; }
+  .station-flip .station-face { display:block; transform:none !important; backface-visibility:visible; }
+  .station-face img { max-width:65%; }
+  .station-face strong,.station-face small { display:block; }
+  figure, .test-question { break-inside:avoid; }
+  h2,h3 { break-after:avoid; }
+}</style></head><body>
 <a class="skip" href="#grundlagen">Zum Inhalt</a>
 <header><div class="wrap hero module-hero"><div><p class="label">Robotik · Modul 1</p><h1>Aufbau und Kinematik von Industrierobotern</h1><p>Achsarten und Arbeitsräume serieller und paralleler Roboterbauformen</p></div><figure class="cover-photo"><img src="kinematiken/delta-verpackungslinie.png" width="1536" height="1024" alt="Illustration mehrerer Delta-Picker, die Schokolade vom Förderband in Verpackungen setzen."></figure></div></header>
 <nav aria-label="Abschnitte"><div class="wrap"><a href="#grundlagen">Aufbau</a><a href="#bauformen">Achsverknüpfung</a><a href="#arbeitsraum">Bauformen</a><a href="#selbsttest">Selbsttest</a></div></nav>
@@ -117,5 +137,34 @@
     markAnswers();
   }
 </script>
-<footer class="module-sources"><details><summary>Quellen und Mediennachweise</summary><h3>Bilder</h3><ul><li>Titelbild · KI-generierte Illustration einer Verpackungslinie mit Delta-Pickern.</li><li>Portalroboter · Midigital · <a href="https://commons.wikimedia.org/wiki/File:TBG-25_ISO_Cartesian_Gantry_Robot.jpg">Originalbild</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li><li>SCARA · Jo Teichmann · <a href="https://commons.wikimedia.org/wiki/File:KUKA_Industrial_Robot_KR10_SCARA.jpg">Originalbild</a> · Public Domain</li><li>Deltaroboter · Marc Auledas · <a href="https://commons.wikimedia.org/wiki/File:Robot_delta_FlexPicker_d'ABB.png">Originalbild</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li><li>Knickarmroboter · Jo Teichmann · <a href="https://commons.wikimedia.org/wiki/File:Industrial_robots-transparent.gif">Originalbild</a> · Public Domain</li></ul><h3>Videos</h3><ul><li><a href="https://www.youtube.com/watch?v=iPgpx-Ox0c8" target="_blank" rel="noopener">igus · Portale im Einsatz ↗</a></li><li><a href="https://www.youtube.com/watch?v=v38YHwekchU" target="_blank" rel="noopener">Epson · Batteriehandling mit dem LS50 ↗</a></li><li><a href="https://www.youtube.com/watch?v=UiC_XgW80ME" target="_blank" rel="noopener">APT · Schweißdemo an der Mod-Weld-Zelle ↗</a></li><li><a href="https://www.youtube.com/watch?v=NLphNYbqRV0" target="_blank" rel="noopener">FANUC · Delta im Vergleich mit SCARA ↗</a></li></ul></details></footer></main></body></html>
+<footer class="module-sources"><details><summary>Quellen und Mediennachweise</summary><h3>Bilder</h3><ul><li>Titelbild · KI-generierte Illustration einer Verpackungslinie mit Delta-Pickern.</li><li>Portalroboter · Midigital · <a href="https://commons.wikimedia.org/wiki/File:TBG-25_ISO_Cartesian_Gantry_Robot.jpg">Originalbild</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li><li>SCARA · Jo Teichmann · <a href="https://commons.wikimedia.org/wiki/File:KUKA_Industrial_Robot_KR10_SCARA.jpg">Originalbild</a> · Public Domain</li><li>Deltaroboter · Marc Auledas · <a href="https://commons.wikimedia.org/wiki/File:Robot_delta_FlexPicker_d'ABB.png">Originalbild</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></li><li>Knickarmroboter · Jo Teichmann · <a href="https://commons.wikimedia.org/wiki/File:Industrial_robots-transparent.gif">Originalbild</a> · Public Domain</li></ul><h3>Videos</h3><ul><li><a href="https://www.youtube.com/watch?v=iPgpx-Ox0c8" target="_blank" rel="noopener">igus · Portale im Einsatz ↗</a></li><li><a href="https://www.youtube.com/watch?v=v38YHwekchU" target="_blank" rel="noopener">Epson · Batteriehandling mit dem LS50 ↗</a></li><li><a href="https://www.youtube.com/watch?v=UiC_XgW80ME" target="_blank" rel="noopener">APT · Schweißdemo an der Mod-Weld-Zelle ↗</a></li><li><a href="https://www.youtube.com/watch?v=NLphNYbqRV0" target="_blank" rel="noopener">FANUC · Delta im Vergleich mit SCARA ↗</a></li></ul></details></footer><div class="pdf-export">
+  <button type="button" id="export-pdf">Als PDF exportieren</button>
+  <p>Wähle im Druckdialog „Als PDF speichern“. Die Druckfassung enthält die Aufgaben und Lösungsvorschläge.</p>
+</div>
+<script>
+  const stage = document.querySelector('.system-stage');
+  const glossary = document.createElement('dl');
+  glossary.className = 'print-parts';
+  for (const part of stage.querySelectorAll('.part')) {
+    const term = document.createElement('dt');
+    const description = document.createElement('dd');
+    term.textContent = part.querySelector('summary').textContent;
+    description.textContent = part.querySelector('p').textContent;
+    glossary.append(term, description);
+  }
+  stage.after(glossary);
+
+  const openedForPrint = new Set();
+  window.addEventListener('beforeprint', () => {
+    for (const panel of document.querySelectorAll('details:not(.part):not([open])')) {
+      openedForPrint.add(panel);
+      panel.open = true;
+    }
+  });
+  window.addEventListener('afterprint', () => {
+    for (const panel of openedForPrint) panel.open = false;
+    openedForPrint.clear();
+  });
+  document.getElementById('export-pdf').addEventListener('click', () => window.print());
+</script></main></body></html>
 

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koordinatensysteme und TCP · Modul 2</title>
+<link rel="stylesheet" href="robotik.css"><link rel="stylesheet" href="kinematiken/tm1115.css"><link rel="stylesheet" href="kinematiken/tm1115/hell.css"><link rel="stylesheet" href="kinematiken/tm1115/petrol.css"><link rel="stylesheet" href="koordinaten/modul.css">
+<script defer src="koordinaten/achsmodell.js"></script>
+<script defer src="koordinaten/modul.js"></script>
+<script defer src="koordinaten/selbsttest.js"></script>
+</head>
+<body>
+<a class="skip" href="#systeme">Zum Inhalt</a>
+<header><div class="wrap hero module-hero"><div><p class="label">Robotik · Modul 2</p><h1>Koordinatensysteme und TCP</h1><p>Gelenkstellungen, Werkzeugposition und Bezugswahl am Sechsachsroboter</p></div><figure class="cover-photo"><img src="kinematiken/delta-verpackungslinie.png" width="1536" height="1024" alt="Illustration mehrerer Delta-Picker, die Schokolade vom Förderband in Verpackungen setzen."></figure></div></header>
+<nav aria-label="Abschnitte"><div class="wrap"><a href="#systeme">Bezugssysteme</a><a href="#angaben">Koordinatenangaben</a><a href="#aufgabe">Selbsttest</a></div></nav>
+<main class="wrap">
+<section id="systeme"><h2>Kartesische Bezugssysteme der Roboterzelle</h2>
+<p>Ein kartesisches Koordinatensystem beschreibt die Lage eines Punktes im Raum. Es hat einen <strong>Ursprung</strong> (Nullpunkt) und drei senkrecht zueinander stehende <strong>Achsen X, Y und Z</strong>. Am Ursprung sind alle drei Koordinaten null. Die Koordinaten eines Punktes geben an, wie weit er vom Ursprung in den einzelnen Achsrichtungen entfernt liegt. Das Vorzeichen gibt die Richtung an.</p>
+<h3>Bezugssysteme und ihre Verwendung</h3>
+<p>In einer Roboterzelle lassen sich Ursprung und Achsen an verschiedenen Teilen der Anlage festlegen. Die Wahl richtet sich danach, worauf sich eine Position oder Bewegung beziehen soll.</p>
+<ul>
+  <li><strong>Weltkoordinatensystem.</strong> Es ist fest mit der Zelle verbunden. In ihm lassen sich Positionen angeben, die mehrere Roboter oder Stationen gemeinsam nutzen.</li>
+  <li><strong>Basiskoordinatensystem.</strong> Es ist an die Basis eines Roboters gebunden. Es beschreibt, wo ein Ziel relativ zu diesem Roboter liegt.</li>
+  <li><strong>Werkstückkoordinatensystem.</strong> Sein Ursprung liegt an einem vereinbarten Punkt des Bauteils. Richtet man die Achsen an den Bauteilkanten aus, lassen sich Zielpunkte mit den Maßen der Werkstückzeichnung angeben.</li>
+  <li><strong>Werkzeugkoordinatensystem.</strong> Sein Ursprung ist der festgelegte Arbeitspunkt des Werkzeugs, der <strong>Tool Center Point (TCP)</strong>. Die Achsen drehen sich mit dem Werkzeug. Damit lassen sich Bewegungen längs oder quer zum Werkzeug beschreiben.</li>
+</ul>
+<h3>Anwendungsbeispiel: Prüfstift an einer Prüfstation</h3>
+<p>Ein Roboter hält einen Prüfstift schräg über einem Gehäuse. Der TCP liegt an der Stiftspitze. Blende die vier Achsenkreuze nacheinander ein. Vergleiche, wo ihr Ursprung liegt und wohin die positive Z-Achse zeigt.</p>
+<div class="instrument"><figure><svg id="cell" viewBox="-10 -20 415 300" role="img" aria-label="Prüfstation mit wählbarem Achsenkreuz an Zelle, Sockel, Werkstück oder Prüfstift."></svg><figcaption>Der weiße Punkt kennzeichnet den TCP, der Ring den Ursprung des gewählten Systems. Die Pfeile zeigen die positiven Achsrichtungen. Die Wegspuren beginnen an derselben Startposition.</figcaption></figure>
+<div class="panel"><h3>Bezug wählen</h3><div class="controls" id="frames"></div><p id="frame-note" role="status"></p></div></div>
+<p>Der TCP soll aus derselben Startposition jeweils 40 mm in +Z fahren. Bei welcher Bezugswahl hebt sich die Spitze senkrecht vom Tisch? Bei welcher bewegt sie sich entlang des Stifts? Sage die beiden Wege voraus und prüfe deine Vorhersage mit den Schaltflächen.</p>
+<div class="controls"><button id="base-step">40 mm in Basis-+Z</button><button id="tool-step">40 mm in Werkzeug-+Z</button><button id="reset">Zur Ausgangslage</button></div><p id="step-note" role="status">Der Prüfstift steht in Ausgangslage.</p>
+<aside class="merkbox" aria-label="Merke"><span class="merkbox-icon" aria-hidden="true">!</span><div><strong>Merke</strong><p>Beim Prüfstift zeigt Werkzeug-Z längs des Stifts, Basis-Z senkrecht nach oben.</p><b>Das gewählte Bezugssystem legt fest, wohin der TCP bei einer Fahrt in +Z fährt.</b></div></aside>
+</section>
+<section id="angaben"><h2>Gelenkkoordinaten und kartesische Koordinaten</h2>
+<p>Für dieselbe Roboterstellung kann die Steuerung zwei Arten von Koordinaten anzeigen. Sie beantworten unterschiedliche Fragen.</p>
+<ul>
+  <li><strong>Gelenkkoordinaten – wie stehen die einzelnen Gelenke?</strong> Jede Roboterachse hat einen eigenen Wert. Bei einem Drehgelenk ist das der Winkel gegenüber seiner Nullstellung, bei einer Linearachse der Verfahrweg gegenüber ihrem Nullpunkt. Bei einem Knickarm mit sechs Drehgelenken bilden die sechs Winkel A1 bis A6 zusammen den Achsvektor.</li>
+  <li><strong>Kartesische Koordinaten – wo liegt der TCP?</strong> Die Werte X, Y und Z geben die Position des Arbeitspunkts im gewählten Bezugssystem an, üblicherweise in Millimetern. Zusammen bilden sie den Positionsvektor. Für die vollständige Lage des Werkzeugs kommen Angaben zur Orientierung hinzu.</li>
+</ul>
+<div class="instrument"><figure><svg id="motion" viewBox="0 -14 375 286" role="img" aria-label="Räumliche Skizze des Sechsachsarms. Die Gelenke A1 bis A6 führen zur markierten Stiftspitze. Die Spur folgt dem TCP."></svg><figcaption>Die türkisfarbenen Bögen markieren mögliche Drehungen um die Drehachsen A1 bis A6. Die goldene Spur zeigt den Bogen der Stiftspitze, die türkisfarbene Gerade den anschließenden Hub. Die gestrichelte Maßkette zeigt die TCP-Position im Basissystem.</figcaption></figure>
+<div class="panel"><h3>Gelenkkoordinaten</h3><p class="caption">Achsvektor in Grad</p><dl id="angles"></dl>
+<h3>Kartesische Koordinaten</h3><p class="caption">Position des TCP im Basissystem · mm</p><dl id="position"></dl></div></div>
+<label class="range" for="travel">Bewegungsablauf <output id="percent" for="travel">0 %</output></label>
+<input id="travel" type="range" min="0" max="100" value="0" step="1">
+<div class="ticks"><span>Start</span><span>50 % · Bahnwechsel</span><span>Endlage</span></div>
+<p><strong>0 bis 50 % · Schulter schwenken.</strong> Bewege den Regler langsam bis zur Mitte. Nur A2 dreht sich. Welche Bahn beschreibt die Stiftspitze und welche ihrer drei Positionswerte ändern sich?</p>
+<p><strong>50 bis 100 % · TCP senkrecht anheben.</strong> Die Spitze fährt bei gleicher Werkzeugorientierung 65 mm nach oben. Welche Gelenke arbeiten zusammen? Vergleiche die beiden Vektoren bei 50 und 100 %.</p>
+<details><summary>Beobachtung vergleichen</summary><p>Beim Schwenken beschreibt der TCP einen Kreisbogen. Da der Arm schräg zu den Basisachsen steht, ändern sich X, Y und Z. Beim senkrechten Hub ändern sich A2, A3 und A5 gemeinsam. In den kartesischen Koordinaten wächst nur Z.</p></details>
+</section>
+<section id="aufgabe"><p class="label">Selbsttest</p><h2>Wissen prüfen</h2><p>Wähle pro Frage eine Antwort.</p>
+<fieldset class="test-question"><legend>1 · Eine Bohrung liegt 30 mm rechts und 15 mm oberhalb einer festgelegten Ecke auf einer Werkstückzeichnung. In welchem Bezugssystem lassen sich diese Maße direkt als Zielkoordinaten verwenden?</legend>
+<label><input type="radio" name="frage-1" data-correct data-hint="Richtig. Ursprung und Achsen stimmen mit der Bemaßung der Zeichnung überein."> Im Werkstücksystem, wenn sein Ursprung an dieser Ecke liegt und seine Achsen den Maßrichtungen folgen. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-1" data-hint="Die Befestigung legt den Bezug zur bemaßten Ecke noch nicht fest."> Im Basissystem, wenn der Robotersockel mit dem Tisch verschraubt ist. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-1" data-hint="Woran ist der Ursprung der Zeichnungsmaße gebunden?"> Im Werkzeugsystem, wenn die Werkzeugspitze zur Bohrung zeigt. <strong class="answer-mark" hidden></strong></label>
+<p role="status"></p><details><summary>Lösungsvorschlag anzeigen</summary><p>Im Werkstücksystem, wenn sein Ursprung an dieser Ecke liegt und seine Achsen den Maßrichtungen folgen. Ursprung und Achsen stimmen mit der Bemaßung der Zeichnung überein.</p></details></fieldset>
+<fieldset class="test-question"><legend>2 · Der Roboter kippt einen Prüfstift um seine Spitze. Die Spitze ist als TCP festgelegt und bleibt während der Drehung am selben Ort. Was ändert sich?</legend>
+<label><input type="radio" name="frage-2" data-hint="Betrachte den Punkt, um den gekippt wird."> Die X-, Y- und Z-Koordinaten des TCP im Basissystem. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-2" data-correct data-hint="Richtig. Die Werkzeugachsen drehen sich mit dem Stift, während die Spitze am selben Ort bleibt."> Die Ausrichtung der Werkzeugachsen gegenüber den Basisachsen. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-2" data-hint="Der Arbeitspunkt ist an der Spitze des Stifts festgelegt."> Die Lage des TCP am Prüfstift. <strong class="answer-mark" hidden></strong></label>
+<p role="status"></p><details><summary>Lösungsvorschlag anzeigen</summary><p>Die Ausrichtung der Werkzeugachsen gegenüber den Basisachsen. Die Werkzeugachsen drehen sich mit dem Stift, während die Spitze am selben Ort bleibt.</p></details></fieldset>
+<fieldset class="test-question"><legend>3 · In der Animation schwenkt nur das Schultergelenk A2. Die Stiftspitze beschreibt einen Kreisbogen. Welche Änderung können die beiden Koordinatenanzeigen dabei zeigen?</legend>
+<label><input type="radio" name="frage-3" data-hint="Der Sockel steht fest. Verfolge die Spitze auf ihrem Kreisbogen."> Im Achsvektor ändert sich nur A2. Die TCP-Koordinaten bleiben gleich, weil der Roboter fest am Boden steht. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-3" data-hint="Die Nummer des Gelenks bestimmt keine kartesische Richtung."> Im Achsvektor ändert sich nur A2. Entsprechend ändert sich auch nur die zweite kartesische Koordinate Y. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-3" data-correct data-hint="Richtig. Die Gelenkdrehung bewegt die Spitze auf einem Bogen, der sich auf mehrere Basisachsen projiziert."> Im Achsvektor ändert sich nur A2. Im Basissystem können sich mehrere TCP-Koordinaten gleichzeitig ändern. <strong class="answer-mark" hidden></strong></label>
+<p role="status"></p><details><summary>Lösungsvorschlag anzeigen</summary><p>Im Achsvektor ändert sich nur A2. Im Basissystem können sich mehrere TCP-Koordinaten gleichzeitig ändern. Die Gelenkdrehung bewegt die Spitze auf einem Bogen, der sich auf mehrere Basisachsen projiziert.</p></details></fieldset>
+<fieldset class="test-question"><legend>4 · Zwei Roboter stehen auf gegenüberliegenden Seiten einer Zelle. Ihre Basisachsen zeigen in unterschiedliche Richtungen. Beide sollen denselben Übergabepunkt über einen gemeinsamen XYZ-Datensatz anfahren. Welchen Bezug wählst du?</legend>
+<label><input type="radio" name="frage-4" data-correct data-hint="Richtig. Der gemeinsame Ursprung und die gemeinsamen Achsrichtungen geben dem Datensatz für beide Roboter dieselbe Bedeutung."> Das gemeinsame Weltsystem der Zelle. Die Lage beider Roboterbasen in diesem System ist bekannt. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-4" data-hint="Vergleiche die beiden Ursprünge und Achsrichtungen."> Das jeweilige Basissystem. Beide Roboter erhalten dieselben drei Zahlenwerte. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-4" data-hint="Jeder Greifer führt sein eigenes Werkzeugkoordinatensystem mit."> Das jeweilige Werkzeugsystem. Beide Greifer verwenden die Bezeichnung „TCP“ für ihren Arbeitspunkt. <strong class="answer-mark" hidden></strong></label>
+<p role="status"></p><details><summary>Lösungsvorschlag anzeigen</summary><p>Das gemeinsame Weltsystem der Zelle. Die Lage beider Roboterbasen in diesem System ist bekannt. Der gemeinsame Ursprung und die gemeinsamen Achsrichtungen geben dem Datensatz für beide Roboter dieselbe Bedeutung.</p></details></fieldset>
+<fieldset class="test-question"><legend>5 · Eine Klebedüse steht schräg über einem waagerechten Deckel. Werkzeug-+Z zeigt von der Düsenspitze zum Halter. Werkstück-+Z zeigt senkrecht vom Deckel weg. Welcher Befehl zieht die Spitze bei gleicher Neigung 20 mm entlang der Düse zurück?</legend>
+<label><input type="radio" name="frage-5" data-hint="Diese Richtung führt senkrecht vom Deckel weg. Vergleiche sie mit der Düsenachse."> 20 mm in Werkstück-+Z fahren. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-5" data-correct data-hint="Richtig. Werkzeug-+Z verläuft entlang der Düse von der Spitze zum Halter."> 20 mm in Werkzeug-+Z fahren. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-5" data-hint="Prüfe, welches Vorzeichen die Richtung zum Halter bezeichnet."> 20 mm in Werkzeug-−Z fahren. <strong class="answer-mark" hidden></strong></label>
+<p role="status"></p><details><summary>Lösungsvorschlag anzeigen</summary><p>20 mm in Werkzeug-+Z fahren. Werkzeug-+Z verläuft entlang der Düse von der Spitze zum Halter.</p></details></fieldset>
+<fieldset class="test-question"><legend>6 · Beim senkrechten Hub zeigt die Steuerung im Basissystem X = 120 mm, Y = 60 mm und zunächst Z = 80 mm. Am Ende beträgt Z = 145 mm. X, Y und Werkzeugorientierung bleiben gleich. Was lässt sich daraus für diesen Sechsachs-Knickarm ableiten?</legend>
+<label><input type="radio" name="frage-6" data-hint="Vergleiche die Einheit des Hubs mit der Einheit eines Gelenkwinkels."> A3 hat sich um 65° gedreht, weil Z die dritte kartesische Koordinate ist. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-6" data-hint="Auch bei gleicher Orientierung muss der Arm die Spitze an eine neue Position bringen."> Alle Gelenkwinkel sind gleich geblieben, weil die Werkzeugorientierung gleich geblieben ist. <strong class="answer-mark" hidden></strong></label>
+<label><input type="radio" name="frage-6" data-correct data-hint="Richtig. Die Höhendifferenz beträgt 145 mm − 80 mm. Schulter, Ellenbogen und Handgelenk führen den geraden Hub gemeinsam aus."> Der TCP ist 65 mm in Basis-+Z gefahren. Für diesen geraden Hub ändern sich mehrere Gelenkwinkel gemeinsam. <strong class="answer-mark" hidden></strong></label>
+<p role="status"></p><details><summary>Lösungsvorschlag anzeigen</summary><p>Der TCP ist 65 mm in Basis-+Z gefahren. Für diesen geraden Hub ändern sich mehrere Gelenkwinkel gemeinsam. Die Höhendifferenz beträgt 145 mm − 80 mm. Schulter, Ellenbogen und Handgelenk führen den geraden Hub gemeinsam aus.</p></details></fieldset>
+</section>
+<footer class="module-sources"><details><summary>Quellen und Mediennachweise</summary><p>Das Titelbild ist die KI-generierte Illustration der Delta-Picker-Verpackungslinie aus Modul 1. Zeichnungen und Bewegungsmodelle sind Eigenanfertigungen für den Robotikkurs der Rudolf-Diesel-Fachschule Nürnberg. Alle Rechte vorbehalten.</p></details></footer></main></body></html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="330" viewBox="0 0 480 330" role="img" aria-labelledby="title">
+<title id="title">Stillstehender Greifer mit Druckluft und angehobener Last</title><defs>
+<linearGradient id="orange" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffbd78"/><stop offset=".45" stop-color="#f58a2c"/><stop offset="1" stop-color="#ca5f18"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#eef1f0"/><stop offset=".45" stop-color="#b8c2c7"/><stop offset="1" stop-color="#6e808a"/></linearGradient>
+<pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H12V12" fill="none" stroke="#8b9e9e" stroke-width=".7"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#197d73" stroke-width="1.7"/></marker>
+</defs><style>text{font-family:Arial,Segoe UI,sans-serif;fill:#304850}.label{font-size:18px;font-weight:600}.line{fill:none;stroke:#819491;stroke-width:1.8}</style>
+<rect width="480" height="330" fill="#f7f9f6"/><path d="M204 37h67v47h-67z" fill="#8fa2a9" stroke="#516d77" stroke-width="2"/>
+<path d="M185 81h104v66H185z" fill="url(#orange)" stroke="#aa591c" stroke-width="2"/>
+<path d="M197 145v55h28m51-55v55h-27" fill="none" stroke="#667e87" stroke-width="13"/>
+<path d="M197 145v55h28m51-55v55h-27" fill="none" stroke="#bfcbce" stroke-width="5"/>
+<rect x="215" y="174" width="42" height="48" rx="2" fill="#9db5bf" stroke="#536f7a" stroke-width="2"/>
+<path d="M43 117H184" stroke="#568692" stroke-width="5" fill="none"/><circle cx="101" cy="117" r="19" fill="#fff" stroke="#568692" stroke-width="2"/><path d="M101 117l8-8" stroke="#568692" stroke-width="3"/>
+<path d="M139 272h200v18H139z" fill="#cdd9d8" stroke="#819795" stroke-width="2"/><path d="M152 291v23m173-23v23" stroke="#819795" stroke-width="5"/>
+<path d="M237 228v32" stroke="#197d73" stroke-width="3" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<path d="M271 60h66V63H414M257 199h81v22h78" class="line"/>
+<text class="label" x="25" y="76">Druckluft</text><text class="label" x="315" y="47">Arm steht</text>
+<text x="340" y="210" font-size="17">Gehaltene</text><text x="340" y="234" font-size="17">Last</text></svg>

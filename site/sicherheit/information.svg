@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="170" viewBox="0 0 320 170" role="img" aria-labelledby="title">
+<title id="title">Benutzerinformation mit Hinweis auf gespeicherte Druckluft</title><defs>
+<linearGradient id="orange" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffbd78"/><stop offset=".45" stop-color="#f58a2c"/><stop offset="1" stop-color="#ca5f18"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#eef1f0"/><stop offset=".45" stop-color="#b8c2c7"/><stop offset="1" stop-color="#6e808a"/></linearGradient>
+<pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H12V12" fill="none" stroke="#8b9e9e" stroke-width=".7"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#197d73" stroke-width="1.7"/></marker>
+</defs><style>text{font-family:Arial,Segoe UI,sans-serif;fill:#304850}.label{font-size:18px;font-weight:600}.line{fill:none;stroke:#819491;stroke-width:1.8}</style>
+<rect width="320" height="170" fill="#f7f9f6"/><path d="M77 28h116l28 28v88H77z" fill="white" stroke="#829790" stroke-width="2"/><path d="M193 28v29h28" fill="#dce6dc" stroke="#829790" stroke-width="2"/>
+<path d="M113 68l26 44H87z" fill="#efd29a" stroke="#9e6e28" stroke-width="2"/><text x="113" y="102" text-anchor="middle" font-size="30" font-weight="700">!</text>
+<path d="M155 78h45m-45 15h45m-45 15h33M95 128h105" stroke="#9baaa5" stroke-width="4"/>
+<rect x="236" y="74" width="28" height="60" rx="13" fill="url(#metal)" stroke="#6b8588" stroke-width="2"/><path d="M249 74V61h15" stroke="#497d89" fill="none" stroke-width="3"/></svg>

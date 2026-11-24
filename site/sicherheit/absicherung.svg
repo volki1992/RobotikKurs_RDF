@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="170" viewBox="0 0 320 170" role="img" aria-labelledby="title">
+<title id="title">Zugang durch eine trennende Schutzeinrichtung verhindern</title><defs>
+<linearGradient id="orange" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffbd78"/><stop offset=".45" stop-color="#f58a2c"/><stop offset="1" stop-color="#ca5f18"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#eef1f0"/><stop offset=".45" stop-color="#b8c2c7"/><stop offset="1" stop-color="#6e808a"/></linearGradient>
+<pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H12V12" fill="none" stroke="#8b9e9e" stroke-width=".7"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#197d73" stroke-width="1.7"/></marker>
+</defs><style>text{font-family:Arial,Segoe UI,sans-serif;fill:#304850}.label{font-size:18px;font-weight:600}.line{fill:none;stroke:#819491;stroke-width:1.8}</style>
+<rect width="320" height="170" fill="#f7f9f6"/><circle cx="100" cy="108" r="56" fill="#f4c78a" fill-opacity=".18" stroke="#c9a166" stroke-dasharray="4 5"/>
+<path d="M74 127L107 70L150 101" stroke="#a6501c" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M74 124L107 67L150 98" stroke="url(#orange)" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="url(#metal)" stroke="#495961" stroke-width="3"><circle cx="74" cy="127" r="12"/><circle cx="107" cy="70" r="10"/><circle cx="150" cy="101" r="8"/></g><path d="M199 26V146" stroke="#6e8587" stroke-width="7"/><rect x="193" y="26" width="23" height="120" fill="url(#mesh)" stroke="#6e8587" stroke-width="2"/>
+<path d="M280 94H231" stroke="#197d73" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="271" cy="51" r="11" fill="#bccdcb"/><path d="M271 66v39m-13-26 13-8 13 8m-13 26-12 32m12-32 13 32" fill="none" stroke="#809a99" stroke-width="8" stroke-linecap="round"/></svg>

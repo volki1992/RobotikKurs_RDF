@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="370" viewBox="0 0 440 370" role="img" aria-labelledby="title">
+<title id="title">Schutzanforderung, Reaktionszeit, Bremszeit und Stillstand in zeitlicher Reihenfolge</title><defs>
+<linearGradient id="orange" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffbd78"/><stop offset=".45" stop-color="#f58a2c"/><stop offset="1" stop-color="#ca5f18"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#eef1f0"/><stop offset=".45" stop-color="#b8c2c7"/><stop offset="1" stop-color="#6e808a"/></linearGradient>
+<pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H12V12" fill="none" stroke="#8b9e9e" stroke-width=".7"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#197d73" stroke-width="1.7"/></marker>
+</defs><style>text{font-family:Arial,Segoe UI,sans-serif;fill:#304850}.label{font-size:18px;font-weight:600}.line{fill:none;stroke:#819491;stroke-width:1.8}</style>
+<rect width="440" height="370" fill="#f7f9f6"/><path d="M51 38V335" stroke="#197d73" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="51" cy="47" r="8" fill="#197d73"/><text x="79" y="53" class="label">Schutzanforderung</text>
+<rect x="79" y="80" width="310" height="69" rx="3" fill="#f1d2a4"/><text x="100" y="121" font-size="22">Reaktionszeit</text>
+<rect x="79" y="154" width="310" height="105" rx="3" fill="#e5b879"/><text x="100" y="198" font-size="22">Bremszeit</text><text x="100" y="230" font-size="17">Bewegung klingt ab</text>
+<circle cx="51" cy="296" r="8" fill="#197d73"/><text x="79" y="303" class="label">Stillstand · v = 0</text><text x="79" y="342" font-size="17">Zeitfolge ohne Maßstab</text></svg>

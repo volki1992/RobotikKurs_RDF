@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sicherheit in der Robotik · Modul 4</title>
+  <link rel="stylesheet" href="robotik.css">
+  <link rel="stylesheet" href="kinematiken/tm1115.css">
+  <link rel="stylesheet" href="sicherheit/modul.css">
+  <link rel="stylesheet" href="sicherheit/selbsttest.css">
+  <script defer src="sicherheit/modul.js"></script>
+  <script defer src="sicherheit/selbsttest.js"></script>
+</head>
+<body>
+<a class="skip" href="#gefaehrdungen">Zum Inhalt</a>
+<header><div class="wrap hero module-hero">
+  <div><p class="label">Robotik · Modul 4</p><h1>Sicherheit in der Robotik</h1><p>Risiken beurteilen, eine Roboterzelle absichern und Bewegungen bewusst freigeben.</p></div>
+  <figure class="cover-photo"><img src="kinematiken/delta-verpackungslinie.png" width="1536" height="1024" alt="Illustration einer Verpackungslinie mit mehreren Delta-Pickern."></figure>
+</div></header>
+<nav aria-label="Abschnitte"><div class="wrap">
+  <a href="#gefaehrdungen">1 · Gefährdungen und Normen</a>
+  <a href="#schutz">2 · Schutzeinrichtungen</a>
+  <a href="#betrieb">3 · Einrichten und Not-Halt</a>
+  <a href="#selbsttest">Selbsttest</a>
+</div></nav>
+<main class="wrap">
+<section id="gefaehrdungen" aria-labelledby="titel-gefaehrdungen">
+  <p class="label">01 · Grundlagen</p>
+  <h2 id="titel-gefaehrdungen">Gefährdungen erkennen und Risiken beurteilen</h2>
+  <p>Ein Knickarm nimmt Metallteile aus einem Magazin und legt sie in eine Vorrichtung. Sein Greifer fährt am Tisch vorbei, während der Ellenbogen nach außen schwenkt. <strong>Eine freie TCP-Bahn schützt noch keine Person neben dem Arm.</strong></p>
+  <figure class="technical-figure overview">
+    <img src="sicherheit/roboterzelle.svg" width="960" height="500" alt="Perspektivische Handhabungszelle ohne Absicherung: 1 schwenkender Arm neben einer Vorrichtung, 2 pneumatischer Greifer mit Werkstück, 3 Materialzugang und 4 Druckluftversorgung.">
+    <figcaption>Unsere Beispielzelle: Roboter, Druckluftgreifer und Werkstückablage. Die Absicherung wird im nächsten Abschnitt ergänzt.</figcaption>
+  </figure>
+  <div class="hazard-grid">
+    <p><span class="number">1</span><strong>Arm und Vorrichtung</strong> Zwischen bewegtem Glied und festem Tisch kann eine Person gequetscht werden.</p>
+    <p><span class="number">2</span><strong>Greifer und Werkstück</strong> Greiffinger können quetschen. Ein verlorenes Teil kann fallen oder weggeschleudert werden.</p>
+    <p><span class="number">3</span><strong>Zugang zur Zelle</strong> Beim Nachfüllen kann eine Person in eine laufende oder unerwartet beginnende Bewegung geraten.</p>
+    <p><span class="number">4</span><strong>Gespeicherte Energie</strong> Druckluft kann den Greifer auch dann bewegen, wenn der Roboterarm stillsteht.</p>
+  </div>
+  <div class="video-study">
+    <h3>Robotercrash: Was bewegt sich im Gefahrenbereich?</h3>
+    <p>Beobachte Arm, Werkzeug und Umgebung im Video. Wo könnte eine Person getroffen oder eingequetscht werden? Trenne dabei die sichtbare Bewegung von Vermutungen über die Ursache des Crashs.</p>
+    <iframe class="crash-video" loading="lazy" title="Geo robot crash – Augie Ries" src="https://www.youtube-nocookie.com/embed/7FwdMjYUyKM" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <p class="small-note">Augie Ries · <a href="https://www.youtube.com/watch?v=7FwdMjYUyKM" target="_blank" rel="noopener">Geo robot crash auf YouTube öffnen</a></p>
+  </div>
+  <h3>Von der Gefährdung zum Risiko</h3>
+  <div class="concept-row">
+    <article><p class="eyebrow">Mögliche Schadensquelle</p><h4>Gefährdung</h4><p>Die Bewegung des Arms kann eine Quetschung verursachen.</p></article>
+    <article><p class="eyebrow">Mensch ist ausgesetzt</p><h4>Gefährdungssituation</h4><p>Eine Person steht zwischen Arm und Vorrichtung – im <strong>Gefahrenbereich</strong>.</p></article>
+    <article><p class="eyebrow">Schwere und Wahrscheinlichkeit</p><h4>Risiko</h4><p>Wie schwer wäre die Verletzung und wie wahrscheinlich tritt sie ein? Häufiger Zugang und geringe Ausweichmöglichkeiten beeinflussen das Risiko.</p></article>
+  </div>
+  <h3>Risikobeurteilung nach DIN EN ISO 12100</h3>
+  <p>Die Beurteilung umfasst alle Lebensphasen und Tätigkeiten: vom Einrichten über den Betrieb bis zu Reinigung, Wartung und Störungsbeseitigung. Auch <strong>vernünftigerweise vorhersehbare Fehlanwendung</strong> zählt dazu – etwa das Hineingreifen durch eine Materialöffnung.</p>
+  <ol class="risk-process">
+    <li><strong>Grenzen festlegen</strong><span>Aufgabe, Personen, Arbeitsraum und vorgesehene Verwendung klären.</span></li>
+    <li><strong>Gefährdungen erkennen</strong><span>Bewegungen, Werkzeuge, Werkstücke und Energiequellen untersuchen.</span></li>
+    <li><strong>Risiko einschätzen</strong><span>Mögliche Schadensschwere und Eintrittswahrscheinlichkeit bestimmen.</span></li>
+    <li><strong>Risiko bewerten</strong><span>Entscheiden, ob weitere Risikominderung erforderlich ist.</span></li>
+  </ol>
+  <p class="loop-note">Nach jeder Schutzmaßnahme erneut prüfen: Ist das Risiko ausreichend vermindert? Entstehen neue Gefährdungen?</p>
+  <h3>Die drei Stufen der Risikominderung</h3>
+  <p>Die Reihenfolge ist entscheidend. Ein Warnhinweis kann eine vermeidbare Quetschstelle oder eine erforderliche Schutzeinrichtung nicht ersetzen.</p>
+  <div class="reduction-grid">
+    <article><img src="sicherheit/konstruktion.svg" width="320" height="170" alt="Eine Vorrichtung wird aus dem Schwenkbereich eines Roboterarms versetzt."><div><p class="eyebrow">Stufe 1 · Vermeiden</p><h4>Inhärent sichere Konstruktion</h4><p>Gefährdungen durch die Gestaltung vermeiden oder vermindern. Beispiel: eine Quetschstelle durch andere Anordnung beseitigen.</p></div></article>
+    <article><img src="sicherheit/absicherung.svg" width="320" height="170" alt="Eine trennende Schutzeinrichtung verhindert den direkten Zugang zum Roboterarm."><div><p class="eyebrow">Stufe 2 · Absichern</p><h4>Technische Schutzmaßnahmen</h4><p>Verbleibende Gefährdungen absichern. Beispiel: Zugang durch einen Schutzzaun verhindern und eine Schutztür überwachen.</p></div></article>
+    <article><img src="sicherheit/information.svg" width="320" height="170" alt="Betriebsanleitung mit Warnzeichen und Hinweis auf gespeicherte Druckluft."><div><p class="eyebrow">Stufe 3 · Informieren</p><h4>Benutzerinformation</h4><p>Über <strong>Restrisiken</strong> und erforderliche Maßnahmen informieren. Beispiel: das Verfahren zur sicheren Störungsbeseitigung beschreiben.</p></div></article>
+  </div>
+  <h3 id="normen">Sicherheitsnormen: Aufgaben und Ziele</h3>
+  <p>Die Grundnorm beschreibt das Vorgehen. Die Roboternormen konkretisieren die Anforderungen an Roboter und Anwendung. Die Not-Halt-Norm behandelt eine bestimmte Schutzfunktion.</p>
+  <div class="standards-wrap"><table class="standards">
+    <caption>Vier Normen für die Sicherheitsentscheidungen dieser Einheit</caption>
+    <thead><tr><th scope="col">Norm und Gegenstand</th><th scope="col">Aufgabe und Ziel</th><th scope="col">An unserer Zelle</th></tr></thead>
+    <tbody>
+      <tr><th scope="row"><span>DIN EN ISO</span> 12100<small>Allgemeine Maschinensicherheit</small></th><td data-label="Aufgabe und Ziel">Risikobeurteilung und Risikominderung systematisch durchführen: Gefährdungen erkennen und Risiken ausreichend vermindern.</td><td data-label="An unserer Zelle">Quetschstelle untersuchen und Schutzmaßnahmen in der richtigen Reihenfolge planen.</td></tr>
+      <tr><th scope="row"><span>DIN EN ISO</span> 10218-1<small>Industrieroboter</small></th><td data-label="Aufgabe und Ziel">Sicherheitsanforderungen an den Roboter selbst festlegen: Konstruktion, Sicherheitsfunktionen und Informationen für seine Verwendung.</td><td data-label="An unserer Zelle">Der Roboter stellt die erforderlichen Funktionen für den vorgesehenen manuellen Betrieb bereit.</td></tr>
+      <tr><th scope="row"><span>DIN EN ISO</span> 10218-2<small>Roboteranwendungen und Roboterzellen</small></th><td data-label="Aufgabe und Ziel">Roboter, Werkzeug, Werkstück und weitere Einrichtungen sicher integrieren; Tätigkeiten über den Lebenszyklus berücksichtigen.</td><td data-label="An unserer Zelle">Greifer, Schutztür, Materialzugang und Roboter zu einem wirksamen Schutzkonzept verbinden.</td></tr>
+      <tr><th scope="row"><span>DIN EN ISO</span> 13850<small>Not-Halt-Funktion</small></th><td data-label="Aufgabe und Ziel">Anforderungen an die Not-Halt-Funktion bestimmen, um tatsächliche oder drohende Notsituationen abzuwenden.</td><td data-label="An unserer Zelle">Gefährliche Bewegung ohne zusätzliche Gefährdung stillsetzen. Rücksetzen darf keinen Start auslösen.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small-note">Die Roboternormen werden hier auf Grundlage der ISO-Ausgaben 10218-1:2025 und 10218-2:2025 eingeordnet. DIN EN ISO bezeichnet die deutsche Übernahme einer europäischen und internationalen Norm.</p>
+  <aside class="merkbox" aria-label="Merke"><span class="merkbox-icon" aria-hidden="true">!</span><div><p class="eyebrow">Merke</p><p>Die Sicherheit des Roboters und die Sicherheit seiner konkreten Anwendung gehören zusammen.</p><strong>12100: Vorgehen · 10218-1: Roboter · 10218-2: Anwendung · 13850: Not-Halt.</strong></div></aside>
+</section>
+<section id="schutz" aria-labelledby="titel-schutz">
+  <p class="label">02 · Technische Schutzmaßnahmen</p>
+  <h2 id="titel-schutz">Die Roboterzelle absichern</h2>
+  <p>Im Automatikbetrieb setzt unsere Zelle die Metallteile selbsttätig um. Menschen müssen vor den gefährlichen Bewegungen geschützt werden. <strong>DIN EN ISO 10218-2</strong> betrachtet dafür die gesamte Anwendung einschließlich ihrer Zugänge.</p>
+  <div class="pair safeguard-pair">
+    <article><figure><img src="sicherheit/schutzzaun.svg" width="480" height="300" alt="Dieselbe Handhabungszelle hinter einer trennenden Schutzeinrichtung mit geschlossener Schutztür."><figcaption>Zugang durch eine Barriere verhindern.</figcaption></figure><div class="card-copy"><h3>Trennende Schutzeinrichtungen</h3><p>Schutzzaun, Umhausung und Schutztür bilden eine körperliche Barriere. Abstände, Höhe und Öffnungen müssen den Zugang zur Gefahr verhindern.</p><p><strong>Rückhaltewirkung:</strong> Gegen wegfliegende Teile schützt nur eine dafür ausgelegte Barriere. Ein beliebiger Gitterzaun genügt dafür nicht automatisch.</p></div></article>
+    <article><figure><img src="sicherheit/lichtvorhang.svg" width="480" height="300" alt="Handhabungszelle mit seitlicher Umzäunung und einem Lichtvorhang am Zugang. Ein unterbrochener Strahl löst eine Schutzreaktion aus."><figcaption>Zutritt erkennen und eine Schutzreaktion auslösen.</figcaption></figure><div class="card-copy"><h3>Nicht trennende Schutzeinrichtungen</h3><p>Ein Lichtvorhang oder Laserscanner erkennt den Zugang berührungslos. Die Sicherheitsfunktion setzt die gefährliche Bewegung rechtzeitig still.</p><p><strong>Keine Rückhaltewirkung:</strong> Lichtstrahlen halten weder Werkstücke noch Späne zurück. Auch Umgehen, Übergreifen und unbemerkter Aufenthalt müssen berücksichtigt werden.</p></div></article>
+  </div>
+  <div class="video-study">
+    <h3>Robotercrash: Welche Schutzwirkung wird gebraucht?</h3>
+    <p>Betrachte den Crash und überlege: Wo muss der Zugang zur Bewegung verhindert werden? Welche zusätzliche Schutzwirkung wäre nötig, falls sich dabei ein Teil löst? Begründe, was ein Lichtvorhang leisten kann und was eine geeignete Barriere leisten muss.</p>
+    <iframe class="crash-video" loading="lazy" title="Roboter Crash – Christoph Sobotta" src="https://www.youtube-nocookie.com/embed/bk6VQi0RXvQ" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <p class="small-note">Christoph Sobotta · <a href="https://www.youtube.com/watch?v=bk6VQi0RXvQ" target="_blank" rel="noopener">Roboter Crash auf YouTube öffnen</a>. Aus dem Clip allein lässt sich das vollständige Schutzkonzept der Anlage nicht beurteilen.</p>
+  </div>
+  <h3>Verriegelung, Zuhaltung und Nachlauf</h3>
+  <p>Ein Stoppsignal beendet eine Bewegung nicht augenblicklich. Zwischen Erkennen, Reaktion der Steuerung und Stillstand vergeht Zeit. In dieser Zeit kann sich auch eine Person weiter annähern.</p>
+  <div class="pair lock-pair">
+    <article><p class="eyebrow">Türstellung überwachen</p><h4>Verriegelung</h4><p>Sie verknüpft die Schutzeinrichtung mit der Maschinenfunktion: Bei offener Tür ist die gefährliche Automatikbewegung gesperrt. Öffnen löst einen Halt aus.</p></article>
+    <article><p class="eyebrow">Tür geschlossen halten</p><h4>Zuhaltung</h4><p>Kann die Gefahr vor Ende des Nachlaufs erreicht werden, hält eine Zuhaltung die Tür bis zum sicheren Zustand geschlossen.</p></article>
+  </div>
+  <figure class="technical-figure time-figure"><picture><source media="screen and (max-width:680px)" srcset="sicherheit/nachlauf-schmal.svg" width="440" height="370"><img src="sicherheit/nachlauf.svg" width="900" height="230" alt="Zeitfolge: Schutzanforderung, Reaktionszeit, Bremszeit, Stillstand. Die Roboterbewegung endet erst nach der Reaktions- und Bremszeit; der Zugang muss bis dahin sicher beherrscht sein."></picture><figcaption>Beim Lichtvorhang wird der notwendige Sicherheitsabstand unter anderem aus der Annäherung sowie den Reaktions- und Nachlaufzeiten bestimmt. Schema ohne Maßstab.</figcaption></figure>
+  <h3>Schließen, quittieren, starten</h3>
+  <p>Eine <strong>Sicherheitsfunktion</strong> bewirkt bei einer festgelegten Anforderung einen sicheren Zustand, etwa den Halt bei geöffneter Tür. Danach muss ein unerwarteter Wiederanlauf verhindert werden. Im folgenden Modell bleibt der Roboter nach dem Schließen stehen.</p>
+  <div class="experiment" id="cell-model">
+    <div class="model-topline"><span class="eyebrow">Automatikbetrieb · Lehrmodell</span><strong id="cell-label">Stillstand · nicht quittiert</strong></div>
+    <div class="model-layout">
+      <figure>
+        <svg viewBox="0 0 480 340" role="img" aria-labelledby="cell-svg-title"><title id="cell-svg-title">Draufsicht der Beispielzelle mit Magazin links, Vorrichtung oben rechts, beweglichem Arm und Schutztür unten rechts.</title>
+          <defs><linearGradient id="arm-metal"><stop stop-color="#e3e7e7"/><stop offset="1" stop-color="#7e8c92"/></linearGradient></defs>
+          <rect x="45" y="30" width="350" height="275" rx="4" fill="#f1f4f2"/>
+          <path d="M265 305H45V30H395V305H355" class="fence"/>
+          <path id="door-leaf" d="M265 305H355" stroke="#bf7509" stroke-width="8" fill="none"/>
+          <path d="M265 305H355" stroke="#bf7509" stroke-width="2" stroke-dasharray="5 5"/>
+          <rect x="66" y="90" width="65" height="95" rx="3" fill="#d7e1e2" stroke="#7c8d94"/>
+          <path d="M78 110H120M78 132H120M78 154H120" stroke="#8d9fa8" stroke-width="11"/>
+          <rect x="295" y="52" width="74" height="70" rx="3" fill="#d7e1e2" stroke="#7c8d94"/>
+          <circle cx="217" cy="180" r="102" class="zone"/>
+          <g id="moving-arm">
+            <path d="M217 180L246 109L310 169" stroke="#aa501c" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M217 176L246 105L310 165" stroke="#f18a30" stroke-width="23" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="url(#arm-metal)" stroke="#475158" stroke-width="5"><circle cx="217" cy="180" r="21"/><circle cx="246" cy="109" r="16"/><circle cx="310" cy="169" r="12"/></g>
+            <g fill="#edf1f2"><circle cx="217" cy="180" r="5"/><circle cx="246" cy="109" r="4"/></g>
+            <path d="M310 183V196" stroke="#ec7e23" stroke-width="18"/><path d="M300 195V213H307M320 195V213H313" fill="none" stroke="#68777f" stroke-width="5"/>
+          </g>
+          <path d="M369 87H400" stroke="#819491" stroke-width="1.5"/>
+          <g class="diagram-label"><text x="67" y="77">Magazin</text><text x="401" y="91">Ablage</text><text x="69" y="280">Roboterzelle</text><text x="365" y="328">Tür</text></g>
+        </svg>
+        <figcaption>Vereinfachter Halt ohne Nachlauf; Personen im Innenraum werden im Modell nicht erfasst.</figcaption>
+      </figure>
+      <div class="model-controls"><p class="observation">Beobachte: Welche Handlung gibt nur frei, welche startet die Bewegung?</p>
+        <button type="button" id="door-toggle" aria-pressed="false">Tür öffnen</button>
+        <button type="button" id="cell-reset">Bereich frei · quittieren</button>
+        <button type="button" id="cell-start" class="primary">Automatik starten</button>
+        <button type="button" id="cell-restart" class="quiet">Modell zurücksetzen</button>
+      </div>
+    </div>
+    <p class="status" id="cell-status" role="status">Tür geschlossen, Roboter steht. Die Quittierung fehlt noch.</p>
+  </div>
+  <p>Vor der <strong>Quittierung</strong> muss der Gefahrenbereich kontrolliert werden. Die Quittierstelle liegt außerhalb und muss die nötige Übersicht ermöglichen. Bei verdeckten Bereichen sind zusätzliche Maßnahmen erforderlich. Der anschließende Start ist eine eigene Handlung.</p>
+  <details class="explanation"><summary>Kollaborative Anwendung: Geht es auch ohne Schutzzaun?</summary><p>Eine Zusammenarbeit von Mensch und Roboter braucht ebenfalls ein geprüftes Schutzkonzept für die gesamte Anwendung. Je nach Konzept werden etwa Abstand und Geschwindigkeit überwacht oder Kräfte und Drücke begrenzt. Ein scharfkantiges Werkstück und eine Quetschstelle am Tisch bleiben dabei relevant. Die Anforderungen an kollaborative Anwendungen werden in ISO 10218-2:2025 behandelt.</p></details>
+  <aside class="merkbox" aria-label="Merke"><span class="merkbox-icon" aria-hidden="true">!</span><div><p class="eyebrow">Merke</p><p>Eine geschlossene Tür bestätigt noch nicht, dass niemand in der Zelle ist.</p><strong>Schließen und Quittieren dürfen im gezeigten Schutzkonzept keinen automatischen Wiederanlauf auslösen.</strong></div></aside>
+</section>
+<section id="betrieb" aria-labelledby="titel-betrieb">
+  <p class="label">03 · Betriebsarten und Eingriffe</p>
+  <h2 id="titel-betrieb">Sicher einrichten und auf Störungen reagieren</h2>
+  <p>Zum Einlernen einer Ablageposition muss eine befugte, fachkundige Person die Zelle eventuell betreten. Für diesen <strong>manuellen Einrichtbetrieb</strong> gelten andere Schutzbedingungen als für den automatischen Ablauf. Die Anforderungen an Roboter und Integration greifen dabei ineinander: <strong>DIN EN ISO 10218-1 und -2.</strong></p>
+  <div class="pair mode-pair">
+    <article><p class="eyebrow">Automatikbetrieb</p><h3>Programm läuft selbsttätig</h3><p>Die vorgesehenen Schutzeinrichtungen sind wirksam. Menschen bleiben außerhalb des abgesicherten Gefahrenbereichs unserer Zelle.</p></article>
+    <article><p class="eyebrow">Manuell mit reduzierter Geschwindigkeit</p><h3>Bewegung bewusst freigeben</h3><p>Bewusst gewählte Betriebsart, sicher reduzierte Geschwindigkeit, Zustimmung und zusätzlicher Fahrbefehl wirken zusammen. Der Standort muss Quetschstellen vermeiden und Ausweichen ermöglichen.</p></article>
+  </div>
+  <p>Ein kleiner Geschwindigkeitswert im normalen Programm ist noch keine Sicherheitsfunktion. Die erforderliche Begrenzung muss <strong>sicherheitstechnisch überwacht</strong> werden. Auch langsame Bewegung kann eine Person einklemmen.</p>
+  <h3>Die dreistufige Zustimmungseinrichtung</h3>
+  <p>Nur die Mittelstellung erlaubt die Bewegungsfreigabe. Loslassen oder vollständiges Durchdrücken führt zum Halt. <strong>Zustimmen allein bewegt den Roboter nicht:</strong> Ein zusätzlicher Fahrbefehl ist erforderlich.</p>
+  <div class="experiment" id="teach-model">
+    <div class="model-topline"><span class="eyebrow">Manueller Einrichtbetrieb · Lehrmodell</span><strong id="teach-label">Stillstand</strong></div>
+    <div class="model-layout teach-layout">
+      <figure>
+        <svg viewBox="0 0 480 300" role="img" aria-labelledby="teach-svg-title"><title id="teach-svg-title">Handbediengerät mit dreistufigem Zustimmungsschalter links und beweglicher Roboterarm rechts. Die gewählte Stellung und der Fahrbefehl bestimmen die Freigabe.</title>
+          <rect x="25" y="55" width="135" height="205" rx="22" fill="#dce2e2" stroke="#68777d" stroke-width="3"/>
+          <rect x="46" y="99" width="93" height="70" rx="5" fill="#31464e"/>
+          <text x="92" y="139" text-anchor="middle" fill="#fff" font-size="23" font-family="Arial,sans-serif">T1</text>
+          <circle cx="128" cy="79" r="13" fill="#e7b424"/><circle cx="128" cy="79" r="9" fill="#ad4138"/>
+          <rect id="enable-key" x="17" y="156" width="16" height="60" rx="6" fill="#829298" stroke="#374d55" stroke-width="2"/>
+          <circle id="command-lamp" cx="92" cy="209" r="17" fill="#f5f6f2" stroke="#68777d" stroke-width="3"/>
+          <path d="M92 218V199m-6 6 6-6 6 6" fill="none" stroke="#37585c" stroke-width="3"/>
+          <path d="M164 185H214" stroke="#168579" stroke-width="2" stroke-dasharray="5 6"/>
+          <ellipse cx="324" cy="259" rx="105" ry="15" fill="#e3e8e5"/>
+          <path d="M270 254h60l-7-32h-43z" fill="#8a989e" stroke="#4a575e" stroke-width="2"/>
+          <g id="teach-arm">
+            <path d="M300 224L315 134L390 166" fill="none" stroke="#a9511d" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M300 220L315 130L390 162" fill="none" stroke="#f18a30" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="url(#arm-metal)" stroke="#475158" stroke-width="4"><circle cx="300" cy="224" r="19"/><circle cx="315" cy="134" r="15"/><circle cx="390" cy="166" r="11"/></g>
+            <path d="M390 177v15" stroke="#ec7e23" stroke-width="16"/><path d="M381 191v17h7m11-17v17h-7" fill="none" stroke="#68777f" stroke-width="5"/>
+          </g>
+          <text class="diagram-label" x="25" y="34">Handbediengerät</text><text class="diagram-label" x="264" y="34">Reduzierte Bewegung</text>
+        </svg>
+        <figcaption>T1: manuell mit reduzierter Geschwindigkeit. Das Modell zeigt nur Zustimmung und Fahrbefehl; die übrigen Schutzbedingungen werden vorausgesetzt.</figcaption>
+      </figure>
+      <div class="model-controls">
+        <fieldset class="enable-options"><legend>Stellung der Zustimmungseinrichtung</legend>
+          <label><input type="radio" name="enable" value="released" checked><span><strong>1 · Losgelassen</strong>Keine Zustimmung</span></label>
+          <label><input type="radio" name="enable" value="middle"><span><strong>2 · Mittelstellung</strong>Zustimmung</span></label>
+          <label><input type="radio" name="enable" value="pressed"><span><strong>3 · Durchgedrückt</strong>Keine Zustimmung</span></label>
+        </fieldset>
+        <button type="button" id="teach-move" class="primary" aria-describedby="hold-help">Fahrbefehl halten</button>
+        <p class="small-note" id="hold-help">Mit Maus oder Finger gedrückt halten; per Tastatur Leertaste oder Eingabetaste halten.</p>
+        <button type="button" id="teach-reset" class="quiet">Modell zurücksetzen</button>
+      </div>
+    </div>
+    <p class="status" id="teach-status" role="status">Losgelassen: keine Zustimmung. Der Roboter steht.</p>
+  </div>
+  <p>Nach vollständigem Durchdrücken muss die Zustimmungseinrichtung zunächst ganz losgelassen werden. Beim Rückweg durch die Mittelstellung darf keine erneute Freigabe entstehen.</p>
+  <h3>Not-Halt und Not-Aus</h3>
+  <p>Im Notfall zählt die Art der Gefährdung. Die Begriffe beschreiben unterschiedliche Funktionen; aus dem roten Taster allein lässt sich ihre technische Wirkung nicht ablesen.</p>
+  <div class="pair emergency-pair">
+    <article><span class="emergency-symbol" aria-hidden="true">■</span><div><p class="eyebrow">Gefährliche Bewegung oder Prozess</p><h4>Not-Halt</h4><p>Setzt die gefährliche Bewegung oder den Prozess so schnell wie erforderlich still, ohne zusätzliche Gefährdungen zu erzeugen. Die elektrische Versorgung muss dabei nicht vollständig abgeschaltet werden.</p></div></article>
+    <article><span class="electrical-symbol" aria-hidden="true">ϟ</span><div><p class="eyebrow">Elektrische Gefährdung</p><h4>Not-Aus</h4><p>Schaltet die betroffene elektrische Versorgung ab, um eine elektrische Gefährdung zu beseitigen. Gespeicherte Druckluft oder die Lageenergie einer gehaltenen Last verschwinden dadurch nicht.</p></div></article>
+  </div>
+  <div class="norm-note"><strong>DIN EN ISO 13850 · Not-Halt-Funktion</strong><p>Not-Halt ist eine ergänzende Schutzmaßnahme und ersetzt keine erforderliche Schutzeinrichtung. Der Befehl bleibt bis zum bewussten Rücksetzen wirksam. <strong>Das Rücksetzen darf keinen Wiederanlauf auslösen.</strong></p></div>
+  <h3>Stillstand und gespeicherte Energie</h3>
+  <div class="energy-layout">
+    <figure class="technical-figure"><img src="sicherheit/restenergie.svg" width="480" height="330" alt="Ein stillstehender Druckluftgreifer hält ein Werkstück über einer Ablage. Der Druck in der Leitung und die Lageenergie des Werkstücks bleiben als Gefährdungen bestehen."><figcaption>Der Arm steht. Druckluft und angehobenes Werkstück können weiterhin gefährlich sein.</figcaption></figure>
+    <div><p>Ein Teil klemmt in unserem Greifer. Ein Halt allein schafft noch keinen sicheren Zustand für das Entfernen: Der Greifer kann sich bewegen, die Last kann fallen.</p><p>Die Störungsbeseitigung erfolgt durch befugte Personen nach dem festgelegten Verfahren. Dazu gehören das Trennen relevanter Energiequellen, das Sichern gegen Wiedereinschalten sowie das Beherrschen gespeicherter Energien.</p><p><strong>Vor einem Druckabbau muss eine gefährdete Last gesichert werden.</strong> Der für den Eingriff erforderliche sichere Zustand ist anschließend zu prüfen.</p></div>
+  </div>
+  <aside class="merkbox" aria-label="Merke"><span class="merkbox-icon" aria-hidden="true">!</span><div><p class="eyebrow">Merke</p><p>Bewegung anhalten, elektrische Versorgung abschalten und einen Eingriff sicher vorbereiten erfüllen unterschiedliche Aufgaben.</p><strong>Stillstand ist nicht Energiefreiheit.</strong></div></aside>
+</section>
+<section id="selbsttest" aria-labelledby="titel-selbsttest">
+<p class="label">Selbsttest</p><h2 id="titel-selbsttest">Sicherheitsentscheidungen begründen</h2>
+<p>Ordne zu, wähle aus und begründe deine Entscheidung. Auswahlantworten erhalten direkt eine Rückmeldung. Halte deine Begründungen und die Risikobeurteilung in deinen eigenen Notizen fest, bevor du die Lösung aufklappst. Deine Auswahlantworten werden nicht übertragen oder dauerhaft gespeichert.</p>
+<noscript><p>Die direkte Rückmeldung benötigt JavaScript. Du kannst die Aufgaben trotzdem bearbeiten und die Lösungen aufklappen.</p></noscript>
+<article class="quiz-task" id="test-normen" aria-labelledby="test-normen-titel">
+<p class="eyebrow">Aufgabe 1 · Zuordnen</p><h3 id="test-normen-titel">Welche Norm hilft weiter?</h3>
+<p>Wähle zu jeder technischen Frage die am unmittelbarsten passende Norm. Jede der vier Normen wird einmal benötigt.</p>
+<div class="norm-matches"><div class="norm-match" data-answer="10218-2" data-right="Teil 2 betrachtet die Integration zur gesamten Roboteranwendung." data-wrong="Hier geht es um das Zusammenspiel mehrerer Einrichtungen, nicht nur um den Roboter.">
+<label for="norm-a"><strong>A ·</strong> Schutztür, Greifer und Roboter sollen so zusammenwirken, dass Menschen die Zelle sicher nutzen können.</label>
+<select id="norm-a" aria-describedby="norm-feedback-a"><option value="">Norm auswählen …</option><option value="12100">DIN EN ISO 12100</option><option value="10218-1">DIN EN ISO 10218-1</option><option value="10218-2">DIN EN ISO 10218-2</option><option value="13850">DIN EN ISO 13850</option></select>
+<p class="quiz-feedback" id="norm-feedback-a" role="status" aria-atomic="true"></p></div>
+<div class="norm-match" data-answer="12100" data-right="Die Grundnorm beschreibt Risikobeurteilung und dreistufige Risikominderung." data-wrong="Gesucht ist die allgemeine Methode zur Risikobeurteilung und Risikominderung.">
+<label for="norm-b"><strong>B ·</strong> Vor der Konstruktion sollen mögliche Verletzungen untersucht und geeignete Maßnahmen in einer festen Reihenfolge geplant werden.</label>
+<select id="norm-b" aria-describedby="norm-feedback-b"><option value="">Norm auswählen …</option><option value="12100">DIN EN ISO 12100</option><option value="10218-1">DIN EN ISO 10218-1</option><option value="10218-2">DIN EN ISO 10218-2</option><option value="13850">DIN EN ISO 13850</option></select>
+<p class="quiz-feedback" id="norm-feedback-b" role="status" aria-atomic="true"></p></div>
+<div class="norm-match" data-answer="13850" data-right="Diese Norm beschreibt Anforderungen an die Not-Halt-Funktion, einschließlich des Rücksetzens." data-wrong="Welche Norm behandelt gezielt die Not-Halt-Funktion?">
+<label for="norm-c"><strong>C ·</strong> Nach dem Entriegeln eines Not-Halt-Tasters darf der Roboter nicht selbsttätig wieder anlaufen.</label>
+<select id="norm-c" aria-describedby="norm-feedback-c"><option value="">Norm auswählen …</option><option value="12100">DIN EN ISO 12100</option><option value="10218-1">DIN EN ISO 10218-1</option><option value="10218-2">DIN EN ISO 10218-2</option><option value="13850">DIN EN ISO 13850</option></select>
+<p class="quiz-feedback" id="norm-feedback-c" role="status" aria-atomic="true"></p></div>
+<div class="norm-match" data-answer="10218-1" data-right="Teil 1 betrifft den Industrieroboter selbst, bevor er in eine konkrete Anwendung integriert wird." data-wrong="Unterscheide den Roboter als Produkt von seiner späteren Integration in eine Zelle.">
+<label for="norm-d"><strong>D ·</strong> Ein Hersteller entwickelt den Roboter einschließlich der Sicherheitsfunktionen für seinen manuellen Betrieb. Die spätere Zelle ist noch nicht festgelegt.</label>
+<select id="norm-d" aria-describedby="norm-feedback-d"><option value="">Norm auswählen …</option><option value="12100">DIN EN ISO 12100</option><option value="10218-1">DIN EN ISO 10218-1</option><option value="10218-2">DIN EN ISO 10218-2</option><option value="13850">DIN EN ISO 13850</option></select>
+<p class="quiz-feedback" id="norm-feedback-d" role="status" aria-atomic="true"></p></div></div>
+<details class="quiz-solution"><summary>Zuordnung mit Begründung anzeigen</summary>
+<ul><li><strong>A · DIN EN ISO 10218-2:</strong> Die Integration von Roboter, Greifer und Schutztür betrifft die gesamte Anwendung.</li><li><strong>B · DIN EN ISO 12100:</strong> Sie liefert die grundlegende Methode der Risikobeurteilung und Risikominderung.</li><li><strong>C · DIN EN ISO 13850:</strong> Das Rücksetzen der Not-Halt-Funktion darf keinen Wiederanlauf auslösen.</li><li><strong>D · DIN EN ISO 10218-1:</strong> Die Anforderungen betreffen den Roboter selbst. Seine spätere Integration behandelt Teil 2.</li></ul>
+</details></article>
+<article class="quiz-task" id="test-schutz" aria-labelledby="test-schutz-titel">
+<p class="eyebrow">Aufgabe 2 · Auswählen und begründen</p><h3 id="test-schutz-titel">Welche Schutzmaßnahme passt?</h3>
+<div class="quiz-scenario"><figure><img src="sicherheit/selbsttest-werkstueck.svg" width="560" height="260" alt="Ein Metallteil löst sich aus dem bewegten Greifer und fliegt in Richtung eines benachbarten Arbeitsplatzes. Es sind noch keine Schutzeinrichtungen eingezeichnet."><figcaption>Veränderte Situation: Ein verlorenes Werkstück kann Personen außerhalb der Zelle treffen.</figcaption></figure>
+<p>Unsere Zelle setzt jetzt schwerere Metallteile um. Die sichere Werkstückhaltung wird überprüft und konstruktiv verbessert. <strong>Für das verbleibende Risiko herausgeschleuderter Teile ist eine ergänzende Absicherung auszuwählen.</strong></p></div>
+<fieldset class="quiz-choice"><legend>2a · Welche der drei Maßnahmen schützt vor diesen Teilen?</legend>
+<label class="quiz-option"><input type="radio" name="schutzwahl" value="licht" data-feedback="Ein Lichtvorhang erkennt den Zutritt, hält ein bereits fliegendes Teil aber nicht zurück."><span>Ein Lichtvorhang am Zugang zur Zelle.<strong class="answer-mark" hidden></strong></span></label>
+<label class="quiz-option"><input type="radio" name="schutzwahl" value="barriere" data-correct data-feedback="Eine entsprechend ausgelegte Umhausung kann die Teile zurückhalten. Die sichere Werkstückhaltung muss zusätzlich berücksichtigt werden."><span>Eine geschlossene Umhausung, deren Rückhaltefähigkeit für die auftretenden Teile und Energien nachgewiesen ist.<strong class="answer-mark" hidden></strong></span></label>
+<label class="quiz-option"><input type="radio" name="schutzwahl" value="warnung" data-feedback="Eine Markierung hält keine Teile auf. Benutzerinformation ersetzt keine erforderliche technische Absicherung."><span>Eine Bodenmarkierung mit dem Hinweis „Abstand halten“.<strong class="answer-mark" hidden></strong></span></label>
+<p class="quiz-feedback" role="status" aria-atomic="true"></p></fieldset>
+<fieldset class="quiz-choice"><legend>2b · Welche Begründung ist entscheidend?</legend>
+<label class="quiz-option"><input type="radio" name="schutzgrund" value="zutritt" data-feedback="Zutritt erkennen und Teile mechanisch zurückhalten sind unterschiedliche Schutzwirkungen."><span>Jede Einrichtung, die einen Zutritt erkennt, schützt gleichzeitig vor fliegenden Teilen.<strong class="answer-mark" hidden></strong></span></label>
+<label class="quiz-option"><input type="radio" name="schutzgrund" value="grenzwert" data-feedback="Öffnungen, Festigkeit und auftretende Energien bestimmen die Rückhaltefähigkeit."><span>Jeder Schutzzaun hält unabhängig von Maschenweite und Festigkeit alle Werkstücke zurück.<strong class="answer-mark" hidden></strong></span></label>
+<label class="quiz-option"><input type="radio" name="schutzgrund" value="rueckhalten" data-correct data-feedback="Die ausgewählte Maßnahme muss zur Gefährdung passen: Hier ist mechanische Rückhaltung erforderlich."><span>Eine geeignete körperliche Barriere hält die Teile zurück; ein Lichtvorhang besitzt diese Rückhaltewirkung nicht.<strong class="answer-mark" hidden></strong></span></label>
+<p class="quiz-feedback" role="status" aria-atomic="true"></p></fieldset>
+<details class="quiz-solution"><summary>Lösung mit Begründung anzeigen</summary><p><strong>2a: die entsprechend ausgelegte geschlossene Umhausung. 2b: die mechanische Rückhaltewirkung.</strong> Ein Lichtvorhang kann einen Zutritt erkennen und einen Halt auslösen, aber keine Teile auffangen. Die Umhausung ergänzt die sichere Werkstückhaltung; sie ersetzt deren Prüfung und Verbesserung nicht.</p></details>
+</article>
+<article class="quiz-task" id="test-zustaende" aria-labelledby="test-zustaende-titel">
+<p class="eyebrow">Aufgabe 3 · Zustände beurteilen</p><h3 id="test-zustaende-titel">Darf sich der Roboter bewegen?</h3>
+<p>Beurteile die drei Zustände unserer Zelle. Für B und C gilt: Der manuelle Einrichtbetrieb ist bewusst gewählt, die sicher reduzierte Geschwindigkeit wird überwacht und alle weiteren Schutzbedingungen sind erfüllt. Die Zustimmungseinrichtung wurde zuvor vollständig losgelassen.</p>
+<div class="state-questions">
+<fieldset class="quiz-choice state-card"><legend>A · Automatikbetrieb</legend><dl><dt>Schutztür</dt><dd>geschlossen</dd><dt>Quittierung</dt><dd>fehlt</dd><dt>Startbefehl</dt><dd>betätigt</dd></dl>
+<label class="quiz-option"><input type="radio" name="zustand-a" value="ja" data-feedback="Eine geschlossene Tür und ein Startbefehl genügen hier nicht. Die erforderliche Quittierung fehlt."><span>Bewegung zulässig<strong class="answer-mark" hidden></strong></span></label>
+<label class="quiz-option"><input type="radio" name="zustand-a" value="nein" data-correct data-feedback="Im gezeigten Schutzkonzept muss nach der Bereichskontrolle quittiert werden. Erst danach darf ein gesonderter Start erfolgen."><span>Bewegung gesperrt<strong class="answer-mark" hidden></strong></span></label>
+<p class="quiz-feedback" role="status" aria-atomic="true"></p></fieldset>
+<fieldset class="quiz-choice state-card"><legend>B · Manueller Einrichtbetrieb</legend><dl><dt>Zustimmung</dt><dd>Mittelstellung</dd><dt>Fahrbefehl</dt><dd>nicht betätigt</dd></dl>
+<label class="quiz-option"><input type="radio" name="zustand-b" value="ja" data-feedback="Zustimmung allein startet keine Bewegung. Welcher Befehl fehlt?"><span>Bewegung zulässig<strong class="answer-mark" hidden></strong></span></label>
+<label class="quiz-option"><input type="radio" name="zustand-b" value="nein" data-correct data-feedback="Die Zustimmung liegt vor, aber der zusätzliche Fahrbefehl fehlt. Der Roboter bleibt stehen."><span>Bewegung gesperrt<strong class="answer-mark" hidden></strong></span></label>
+<p class="quiz-feedback" role="status" aria-atomic="true"></p></fieldset>
+<fieldset class="quiz-choice state-card"><legend>C · Manueller Einrichtbetrieb</legend><dl><dt>Zustimmung</dt><dd>Mittelstellung</dd><dt>Fahrbefehl</dt><dd>wird gehalten</dd></dl>
+<label class="quiz-option"><input type="radio" name="zustand-c" value="ja" data-correct data-feedback="Unter den genannten Schutzbedingungen liegen Zustimmung und Fahrbefehl vor. Eine Bewegung mit sicher reduzierter Geschwindigkeit ist zulässig."><span>Bewegung zulässig<strong class="answer-mark" hidden></strong></span></label>
+<label class="quiz-option"><input type="radio" name="zustand-c" value="nein" data-feedback="Hier sind Zustimmung, Fahrbefehl und die weiteren erforderlichen Schutzbedingungen gegeben."><span>Bewegung gesperrt<strong class="answer-mark" hidden></strong></span></label>
+<p class="quiz-feedback" role="status" aria-atomic="true"></p></fieldset>
+</div>
+<details class="quiz-solution"><summary>Zustände mit Begründung anzeigen</summary><p><strong>A: gesperrt</strong> – Quittierung fehlt. <strong>B: gesperrt</strong> – Fahrbefehl fehlt. <strong>C: zulässig</strong> – Zustimmung und Fahrbefehl liegen vor; die übrigen Schutzbedingungen sind ausdrücklich erfüllt. Eine Freigabe im Einrichtbetrieb erlaubt keinen automatischen Zyklus.</p></details>
+</article>
+<article class="quiz-task" id="test-beurteilung" aria-labelledby="test-beurteilung-titel">
+<p class="eyebrow">Aufgabe 4 · Selbst begründen</p><h3 id="test-beurteilung-titel">Reicht der Stillstand für einen Eingriff?</h3>
+<blockquote>„Das Werkstück klemmt im pneumatischen Greifer. Nach dem Not-Halt steht der Roboter. Jetzt können wir das Teil herausziehen.“</blockquote>
+<p><strong>Beurteile den Vorschlag.</strong> Nenne eine verbleibende Gefährdung und eine dazu passende Schutzmaßnahme. Formuliere zuerst selbst und vergleiche anschließend mit dem Lösungsvorschlag.</p>
+<p class="small-note">Halte deine Begründung in deinen eigenen Notizen fest.</p>
+<details class="quiz-solution"><summary>Lösungsvorschlag und Vergleichskriterien anzeigen</summary>
+<p><strong>Der Vorschlag ist nicht ausreichend:</strong> Not-Halt bedeutet nicht, dass sämtliche Energien beseitigt sind.</p>
+<ul><li><strong>Beispiel Druckluft:</strong> Gespeicherter Druck kann den Greifer unerwartet bewegen. Die relevante Energieversorgung muss nach dem festgelegten Verfahren getrennt, gegen Wiedereinschalten gesichert und gespeicherter Druck beherrscht werden.</li><li><strong>Beispiel gehaltenes Werkstück:</strong> Beim Druckabbau kann die Last fallen. Deshalb muss sie vorher gegen gefährliches Herabfallen gesichert werden.</li></ul>
+<p>Der Eingriff erfolgt durch befugte Personen nach dem festgelegten Verfahren; der sichere Zustand ist zu prüfen. Ein Halt allein oder das Entriegeln des Not-Halts genügt nicht.</p>
+<p><strong>Vergleiche deine Antwort:</strong> Hast du den Vorschlag beurteilt, eine konkrete verbleibende Gefährdung genannt und eine dazu passende Maßnahme begründet? Eine fachlich richtige Kombination genügt; dein Wortlaut darf abweichen.</p>
+</details>
+</article>
+<article class="quiz-task" id="test-risiko" aria-labelledby="test-risiko-titel">
+<p class="eyebrow">Aufgabe 5 · Risikobeurteilung vertiefen</p><h3 id="test-risiko-titel">Vier Änderungen an der Roboterzelle</h3>
+<p>Die bisherige Zelle besitzt eine geprüfte Einhausung mit Materialtunnel und überwachter Serviceklappe. Nach dem Schließen der Klappe sind Quittierung und ein gesonderter Start erforderlich. Schutzabstände und Nachlauf wurden für die bisherige Anwendung geprüft.</p>
+<p><strong>Beurteile die folgenden vier Vorschläge jeweils einzeln gegenüber dieser Ausgangssituation.</strong> Die Änderungen werden nicht miteinander kombiniert. Halte für jeden Fall in deinen eigenen Notizen fest: Welche Gefährdung ist betroffen, wie verändert sich das Risiko und was folgt daraus?</p>
+<dl class="risk-case">
+  <dt>A · Weniger Störungen</dt><dd>Eine neue Führung verhindert, dass sich die Teile beim Zuführen verdrehen. Statt mehrmals pro Schicht muss nur noch selten eine Störung beseitigt werden. Die Prüfung zeigt: Es entstehen keine neuen Quetschstellen; Zugänge und Schutzeinrichtungen bleiben unverändert.</dd>
+  <dt>B · Schneller weiterarbeiten</dt><dd>Nach der Störungsbeseitigung soll das Schließen der Serviceklappe künftig den Automatikzyklus direkt wieder starten. Quittierung und gesonderter Start entfallen. Die Überwachung stoppt den Roboter weiterhin zuverlässig, solange die Klappe offen ist.</dd>
+  <dt>C · Breitere Zuführung</dt><dd>Für breitere Teile wird die Öffnung des Materialtunnels verbreitert. Tunnellänge und Abstand zur Roboterbewegung bleiben gleich. Die Serviceklappe wird weiterhin überwacht. Der Planer möchte deshalb die bisherige Absicherung übernehmen.</dd>
+  <dt>D · Mehr Last, weniger Tempo</dt><dd>Der Roboter soll schwerere Teile handhaben. Roboter und Greifer sind dafür ausgelegt. Um die höhere Last auszugleichen, wird die Programmgeschwindigkeit halbiert. Ein Haltversuch mit der neuen Last in einer Roboterstellung verläuft unauffällig. Der Verantwortliche möchte die bisherigen Nachlaufnachweise und das Verfahren zur Störungsbeseitigung weiterverwenden.</dd>
+</dl>
+<ol class="risk-questions">
+  <li><strong>Zu A:</strong> Wird eher die mögliche Verletzungsschwere oder die Häufigkeit der Gefährdungssituation vermindert? Ordne die Änderung einer Stufe der Risikominderung zu.</li>
+  <li><strong>Zu B:</strong> Ist die Änderung im beschriebenen Schutzkonzept vertretbar? Begründe mit dem Unterschied zwischen Schließen, Freigeben und Starten.</li>
+  <li><strong>Zu C:</strong> Welche zusätzliche Prüfung entscheidet darüber, ob die Absicherung beibehalten werden kann? Erkläre, warum die überwachte Serviceklappe diese Frage nicht beantwortet.</li>
+  <li><strong>Zu D:</strong> Beurteile die Aussage „Schwerer, aber langsamer – damit bleibt die Sicherheit gleich“. Nenne zwei voneinander verschiedene Punkte, die vor einer Freigabe überprüft werden müssen. Unterscheide dabei bekannte Angaben von noch offenen Fragen.</li>
+</ol>
+<p class="small-note">Begründe anhand der Fallangaben und vergleiche anschließend mit dem Lösungsvorschlag. Die Aufgabe betrachtet ausgewählte Schritte der Risikobeurteilung nach DIN EN ISO 12100; eine Risikozahl ist nicht erforderlich.</p>
+<details class="quiz-solution"><summary>Lösungsvorschlag zur Risikobeurteilung anzeigen</summary>
+<h4>A · Ein konstruktiver Beitrag zur Risikominderung</h4>
+<p>Weniger Störungen bedeuten weniger Anlässe für Eingriffe und damit eine geringere Häufigkeit möglicher Gefährdungssituationen. Die mögliche Verletzung bei einem Eingriff wird dadurch nicht automatisch leichter. Die verbesserte Führung gehört zur <strong>inhärent sicheren Konstruktion</strong>. Unter den genannten Bedingungen ist sie sinnvoll; die vorhandenen Schutzeinrichtungen bleiben erforderlich.</p>
+<h4>B · Schließen darf hier keinen Zyklus starten</h4>
+<p><strong>Die Änderung ist im beschriebenen Schutzkonzept nicht vertretbar.</strong> Eine geschlossene Klappe bestätigt nicht, dass der Gefahrenbereich kontrolliert und der nächste Start bewusst veranlasst wurde. Die wirksame Überwachung bei offener Klappe löst das Problem des unerwarteten Wiederanlaufs nicht. Bereich kontrollieren, quittieren und anschließend gesondert starten bleiben die vorgesehenen Schritte.</p>
+<h4>C · Den Materialzugang neu prüfen</h4>
+<p>Zu prüfen ist, ob die gefährliche Bewegung durch die vergrößerte Öffnung erreichbar wird. Entscheidend ist das Zusammenwirken von <strong>Öffnungsmaßen, Tunnellänge und Abstand zur Gefahr</strong>. Die unveränderte Länge allein beantwortet diese Frage nicht. Die Klappenüberwachung erfasst keinen Zugriff durch den Materialtunnel.</p>
+<p>Bleibt die Gefahr nachweislich unerreichbar, kann das Prinzip beibehalten werden. Andernfalls muss beispielsweise die Tunnelgeometrie oder die Lage der Gefahr angepasst werden. Aus den Angaben folgt weder eine automatische Freigabe noch die zwingende Forderung nach einer völlig neuen Schutzeinrichtung.</p>
+<h4>D · Traglast und Geschwindigkeit beantworten nicht alles</h4>
+<p>Die zulässige Last und der erfolgreiche Haltversuch sprechen für die technische Eignung in der geprüften Situation. Sie belegen noch nicht die Sicherheit unter allen vorgesehenen Bedingungen. Eine Halbierung der Programmgeschwindigkeit lässt sich nicht pauschal gegen eine höhere Last aufrechnen.</p>
+<ul><li><strong>Nachlauf und Zugang:</strong> Ist die bisher zugrunde gelegte Zeit bis zum Stillstand auch bei den maßgeblichen ungünstigen Lasten, Stellungen und Bewegungen eingehalten? Ein einzelner Versuch zeigt das nicht. Falls eine Geschwindigkeitsbegrenzung als Schutzmaßnahme benötigt wird, muss ihre sicherheitstechnische Überwachung geklärt sein.</li><li><strong>Störungsbeseitigung und gehaltene Last:</strong> Bleibt das bisherige Verfahren für das schwerere Werkstück geeignet? Zu prüfen ist insbesondere, wie es vor einem Eingriff oder Druckabbau gegen gefährliches Herabfallen gesichert wird. Langsameres Fahren beseitigt die gespeicherte Energie und die Last im Stillstand nicht.</li></ul>
+<p><strong>Urteil:</strong> Das Konzept kann weiterhin geeignet sein, braucht aber passende Nachweise für die neue Last. Je nach Prüfergebnis können das bestehende Verfahren bestätigt, die Absicherung angepasst oder eine zusätzliche Lastsicherung erforderlich werden. Auch andere fachlich begründete, voneinander verschiedene Prüfpunkte sind möglich.</p>
+<p><strong>Selbstkontrolle:</strong> Bei A und B genügt eine klare fachliche Begründung. Bei C benennst du die entscheidende Prüfung. Bei D verknüpfst du mehrere Gefährdungen und unterscheidest zwischen einer plausiblen Vermutung und einem Nachweis.</p>
+</details>
+</article>
+<button type="button" id="quiz-reset" class="quiet">Selbsttest zurücksetzen</button><p class="quiz-reset-status" role="status" aria-atomic="true"></p>
+</section>
+<footer class="module-sources">
+  <details><summary>Quellen und Mediennachweise</summary>
+    <p>Fachliche Grundlage und weiterführende Informationen; Abruf und Abgleich: November 2026. Die Texte erläutern ausgewählte Grundprinzipien. Die konkrete Auslegung einer Anlage erfordert die jeweils anwendbaren vollständigen Normen und Anforderungen.</p>
+    <ul>
+      <li>ISO: <a href="https://www.iso.org/standard/51528.html">ISO 12100 – Risikobeurteilung und Risikominderung</a>; <a href="https://www.iso.org/standard/73933.html">ISO 10218-1:2025 – Industrieroboter</a>; <a href="https://www.iso.org/standard/73934.html">ISO 10218-2:2025 – Roboteranwendungen und Roboterzellen</a>; <a href="https://www.iso.org/standard/59970.html">ISO 13850 – Not-Halt-Funktion</a>.</li>
+      <li>DGUV: <a href="https://www.dguv.de/fb-holzundmetall/sg/sg_maf/robotik/faq/index.jsp">FAQ Robotik</a> – Schutzeinrichtungen, manuelle Betriebsarten, Quittierung und kollaborative Anwendungen.</li>
+      <li>BGHM: <a href="https://www.bghm.de/arbeitsschuetzer/themen/maschinen/robotik">Robotik</a>; <a href="https://www.bghm.de/arbeitsschuetzer/themen/maschinen/not-halt/not-aus">Not-Halt / Not-Aus</a>; <a href="https://www.bghm.de/fileadmin/user_upload/Arbeitsschuetzer/Gesetze_Vorschriften/Informationen/209-074.pdf">DGUV Information 209-074: Industrieroboter</a> – ergänzende Grundlagen; ältere Normverweise beachten.</li>
+    </ul>
+    <p>Medien: Titelbild – KI-generierte Illustration aus Modul 1. Sämtliche technischen Zeichnungen und interaktiven Lehrmodelle – eigenständig für den Robotikkurs der Rudolf-Diesel-Fachschule Nürnberg erstellt, alle Rechte vorbehalten. Schematische Darstellungen ohne Maßstab; keine Abbildungen aus Normen oder Lehrkraftunterlagen übernommen.</p>
+    <p>Videos: Augie Ries · <a href="https://www.youtube.com/watch?v=7FwdMjYUyKM">Geo robot crash</a>; Christoph Sobotta · <a href="https://www.youtube.com/watch?v=bk6VQi0RXvQ">Roboter Crash</a>. Wiedergabe über den YouTube-Player; Rechte bei den jeweiligen Rechteinhabern. Keine freie Nachnutzungslizenz nachgewiesen; die Videos werden nicht kopiert.</p>
+  </details>
+</footer>
+<div class="pdf-export"><button type="button" id="export-pdf">Als PDF exportieren</button><p>Wähle im Druckdialog „Als PDF speichern“. Die Druckfassung enthält die Aufgaben und die Lösungen zum Selbsttest.</p></div>
+</main>
+</body>
+</html>

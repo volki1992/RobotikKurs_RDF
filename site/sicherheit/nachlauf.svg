@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="230" viewBox="0 0 900 230" role="img" aria-labelledby="title">
+<title id="title">Reaktionszeit und Bremszeit bis zum Stillstand, schematischer Geschwindigkeitsverlauf</title><defs>
+<linearGradient id="orange" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffbd78"/><stop offset=".45" stop-color="#f58a2c"/><stop offset="1" stop-color="#ca5f18"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#eef1f0"/><stop offset=".45" stop-color="#b8c2c7"/><stop offset="1" stop-color="#6e808a"/></linearGradient>
+<pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H12V12" fill="none" stroke="#8b9e9e" stroke-width=".7"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#197d73" stroke-width="1.7"/></marker>
+</defs><style>text{font-family:Arial,Segoe UI,sans-serif;fill:#304850}.label{font-size:18px;font-weight:600}.line{fill:none;stroke:#819491;stroke-width:1.8}</style>
+<rect width="900" height="230" fill="#f7f9f6"/><text x="42" y="40" class="label">Schutzanforderung</text><text x="714" y="40" class="label">Stillstand</text>
+<path d="M62 60V180M730 60V180" stroke="#7b8e88" stroke-width="2" stroke-dasharray="4 5"/>
+<rect x="62" y="76" width="230" height="48" rx="3" fill="#f1d2a4"/><rect x="292" y="76" width="438" height="48" rx="3" fill="#e5b879"/>
+<text x="177" y="106" text-anchor="middle" font-size="20">Reaktionszeit</text><text x="508" y="106" text-anchor="middle" font-size="20">Bremszeit</text>
+<path d="M64 155H291L730 176H840" fill="none" stroke="#197d73" stroke-width="4"/>
+<text x="90" y="203" font-size="18">Bewegung läuft noch</text><text x="739" y="203" font-size="18">v = 0</text>
+<path d="M62 218H840" stroke="#197d73" stroke-width="2" marker-end="url(#arrow)"/></svg>

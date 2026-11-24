@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="300" viewBox="0 0 480 300" role="img" aria-labelledby="title">
+<title id="title">Handhabungszelle mit Lichtvorhang am Zugang; eine Hand unterbricht das Schutzfeld</title><defs>
+<linearGradient id="orange" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffbd78"/><stop offset=".45" stop-color="#f58a2c"/><stop offset="1" stop-color="#ca5f18"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#eef1f0"/><stop offset=".45" stop-color="#b8c2c7"/><stop offset="1" stop-color="#6e808a"/></linearGradient>
+<pattern id="mesh" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H12V12" fill="none" stroke="#8b9e9e" stroke-width=".7"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9" fill="none" stroke="#197d73" stroke-width="1.7"/></marker>
+</defs><style>text{font-family:Arial,Segoe UI,sans-serif;fill:#304850}.label{font-size:18px;font-weight:600}.line{fill:none;stroke:#819491;stroke-width:1.8}</style>
+<rect width="480" height="300" fill="#f7f9f6"/><path d="M50 207L242 128 440 209 241 283z" fill="#e7ede7" stroke="#c4d2c8"/>
+<path d="M50 207V88l192-65 198 73v113" fill="none" stroke="#768e91" stroke-width="4"/>
+<path d="M50 88l192-65v105L50 207zM242 23l198 73v113l-198-81z" fill="url(#mesh)" opacity=".6"/>
+<path d="M242 23v105" stroke="#768e91" stroke-width="4"/><g transform="translate(310 166) scale(0.5)"><path d="M0 10l90-34 85 32-91 34z" fill="#d4dedf" stroke="#809397" stroke-width="2"/>
+    <path d="M0 10v14l84 31 91-34V8l-91 34z" fill="#9aadb2" stroke="#809397" stroke-width="2"/>
+    <path d="M12 29v76m140-74v71m-70-51v84" stroke="#667e87" stroke-width="9"/>
+    <path d="M45 8l43-16 41 15-43 17z" fill="#849da5" stroke="#5f737a" stroke-width="2"/>
+    <path d="M57 7l29-10 28 10-29 11z" fill="#e3e9e7"/>
+    </g><g transform="translate(145 35) scale(0.66)">
+    <ellipse cx="94" cy="249" rx="90" ry="15" fill="#d4dfda" opacity=".7"/>
+    <path d="M35 229l61-20 60 21-59 22z" fill="#c2ced0" stroke="#6c8187" stroke-width="2"/>
+    <path d="M35 229v13l62 22 59-22v-12l-59 22z" fill="#73868d"/>
+    <path d="M69 227l5-51 35-11 24 59-33 13z" fill="url(#metal)" stroke="#65737a" stroke-width="2"/>
+    <path d="M94 188L151 70L244 112" fill="none" stroke="#98491e" stroke-width="38" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M89 181L146 63L239 105" fill="none" stroke="url(#orange)" stroke-width="30" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M91 158l42-85m29-7 58 27" stroke="#ffd1a4" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <circle cx="91" cy="181" r="27" fill="url(#metal)" stroke="#424d54" stroke-width="5"/><circle cx="91" cy="181" r="8.1" fill="#edf0ed" stroke="#8899a0" stroke-width="1.5"/><circle cx="147" cy="65" r="23" fill="url(#metal)" stroke="#424d54" stroke-width="5"/><circle cx="147" cy="65" r="6.8999999999999995" fill="#edf0ed" stroke="#8899a0" stroke-width="1.5"/><circle cx="240" cy="107" r="18" fill="url(#metal)" stroke="#424d54" stroke-width="5"/><circle cx="240" cy="107" r="5.3999999999999995" fill="#edf0ed" stroke="#8899a0" stroke-width="1.5"/>
+    <path d="M250 111l27 15v22l-19-1-13-22z" fill="url(#orange)" stroke="#ac541d" stroke-width="2"/>
+    <path d="M261 147v24h10m14-27v27h-8" fill="none" stroke="#74858c" stroke-width="8"/>
+    <path d="M261 147v24h10m14-27v27h-8" fill="none" stroke="#b8c6c9" stroke-width="3"/>
+    </g><path d="M50 88L137 121V241L50 207zM355 120L440 96V209L355 241z" fill="#dce5df" fill-opacity=".65" stroke="#70898d" stroke-width="3"/>
+<path d="M50 88L137 121V241L50 207zM355 120L440 96V209L355 241z" fill="url(#mesh)"/><path d="M137 121V241M355 120V241" stroke="#ce9b2a" stroke-width="9"/>
+<path d="M137 126H355M137 146H355M137 166H355M137 186H355M137 206H355M137 226H355" fill="none" stroke="#258e84" stroke-width="2" stroke-dasharray="5 3"/>
+<path d="M305 264l-40-58-17 6 19 33-23-15-14 7 33 37z" fill="#d3bda3" stroke="#927e6e" stroke-width="2"/>
+<circle cx="260" cy="217" r="17" fill="none" stroke="#ad4e3f" stroke-width="2"/>
+<path d="M355 121L388 60H421" class="line"/><text class="label" x="294" y="47">Lichtvorhang</text></svg>
